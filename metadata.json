@@ -1,0 +1,6 @@
+{
+  "name": "Kôra Studio",
+  "description": "Studio éditorial digital pour auteurs indépendants d'Afrique francophone. Un intermédiaire. Une équipe. Un projet.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
