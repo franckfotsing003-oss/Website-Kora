@@ -141,9 +141,9 @@ export const TestimonialsSection: React.FC = () => {
                   </p>
                 </div>
 
-                {/* Author Info, Book Title & Country */}
-                <div className="pt-4 border-t border-white/10 flex items-center justify-between">
-                  <div className="min-w-0 pr-3">
+                {/* Author Info, Book Title & Circular Author Photo */}
+                <div className="pt-4 border-t border-white/10 flex items-center justify-between gap-3">
+                  <div className="min-w-0 flex-1">
                     <h4 className="text-sm font-bold text-white group-hover:text-amber-300 transition-colors truncate">
                       {item.name}
                     </h4>
@@ -155,10 +155,19 @@ export const TestimonialsSection: React.FC = () => {
                     </p>
                   </div>
 
-                  {/* Country Flag Badge */}
-                  <div className="flex flex-col items-end shrink-0 pl-2">
-                    <span className="text-2xl mb-0.5">{item.countryFlag}</span>
-                    <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">{item.country}</span>
+                  {/* Circular Author Photo replacing nationality */}
+                  <div className="shrink-0">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full p-0.5 bg-gradient-to-tr from-[#D49D42] via-[#FFF8C4] to-[#BD7E24] shadow-md shadow-amber-950/40">
+                      <img
+                        src={item.avatarUrl || `https://ui-avatars.com/api/?name=${encodeURIComponent(item.name)}&background=181511&color=d4a038&bold=true`}
+                        alt={item.name}
+                        className="w-full h-full rounded-full object-cover border-2 border-zinc-950"
+                        loading="lazy"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(item.name)}&background=181511&color=d4a038&bold=true`;
+                        }}
+                      />
+                    </div>
                   </div>
                 </div>
 

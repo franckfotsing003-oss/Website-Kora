@@ -47,7 +47,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAdmin }) => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
           ? 'bg-[#090a0d]/95 backdrop-blur-md border-b border-amber-400/20 shadow-2xl py-3' 
-          : 'bg-transparent py-4'
+          : 'bg-[#090a0d]/85 backdrop-blur-sm border-b border-white/5 py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

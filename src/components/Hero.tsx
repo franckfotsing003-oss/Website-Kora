@@ -19,12 +19,12 @@ export const Hero: React.FC = () => {
   return (
     <section id="hero" className="relative pt-32 sm:pt-40 pb-16 lg:pb-24 overflow-hidden bg-gradient-to-b from-[#08090b] via-[#0d0e13] to-[#090a0d]">
       
-      {/* Ambient Metallic Gold Lighting (No harsh orange) */}
+      {/* Ambient Metallic Gold Lighting */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[900px] h-[400px] bg-[#d4a038]/12 blur-[150px] rounded-full pointer-events-none -z-10"></div>
       <div className="absolute -top-32 right-0 w-96 h-96 bg-[#c8922e]/10 blur-[130px] rounded-full pointer-events-none -z-10"></div>
       
       {/* Subtle geometric luxury pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(#dfb76c12_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none opacity-50"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(#dfb76c12_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none opacity-40"></div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         
@@ -59,23 +59,25 @@ export const Hero: React.FC = () => {
           </p>
         </div>
 
-        {/* Credibility Key Metrics Bar */}
-        <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 mb-8 max-w-4xl mx-auto text-xs sm:text-sm text-zinc-300 font-medium">
-          <div className="flex items-center gap-2 bg-black/60 border border-amber-400/20 px-3.5 py-1.5 rounded-full">
-            <Award className="w-4 h-4 text-amber-300" />
-            <span>{t.hero.stats.authors}</span>
-          </div>
-          <div className="flex items-center gap-2 bg-black/60 border border-amber-400/20 px-3.5 py-1.5 rounded-full">
-            <Globe2 className="w-4 h-4 text-amber-300" />
-            <span>{t.hero.stats.online}</span>
-          </div>
-          <div className="flex items-center gap-2 bg-black/60 border border-amber-400/20 px-3.5 py-1.5 rounded-full">
-            <Clock className="w-4 h-4 text-amber-300" />
-            <span>{t.hero.stats.team}</span>
-          </div>
-          <div className="flex items-center gap-2 bg-black/60 border border-amber-400/20 px-3.5 py-1.5 rounded-full">
-            <ShieldCheck className="w-4 h-4 text-emerald-400" />
-            <span>{t.hero.stats.satisfaction}</span>
+        {/* Credibility Key Metrics Bar - All 4 badges in a single row without wrapping the 4th button */}
+        <div className="w-full max-w-5xl mx-auto mb-8 overflow-x-auto no-scrollbar py-1">
+          <div className="flex items-center justify-center gap-2 sm:gap-3 flex-nowrap min-w-max mx-auto text-xs sm:text-sm text-zinc-300 font-medium">
+            <div className="inline-flex items-center gap-2 bg-black/75 border border-amber-400/25 px-3 sm:px-3.5 py-1.5 rounded-full whitespace-nowrap shrink-0 shadow-sm">
+              <Award className="w-4 h-4 text-amber-300 shrink-0" />
+              <span>{t.hero.stats.authors}</span>
+            </div>
+            <div className="inline-flex items-center gap-2 bg-black/75 border border-amber-400/25 px-3 sm:px-3.5 py-1.5 rounded-full whitespace-nowrap shrink-0 shadow-sm">
+              <Globe2 className="w-4 h-4 text-amber-300 shrink-0" />
+              <span>{t.hero.stats.online}</span>
+            </div>
+            <div className="inline-flex items-center gap-2 bg-black/75 border border-amber-400/25 px-3 sm:px-3.5 py-1.5 rounded-full whitespace-nowrap shrink-0 shadow-sm">
+              <Clock className="w-4 h-4 text-amber-300 shrink-0" />
+              <span>{t.hero.stats.team}</span>
+            </div>
+            <div className="inline-flex items-center gap-2 bg-black/75 border border-amber-400/25 px-3 sm:px-3.5 py-1.5 rounded-full whitespace-nowrap shrink-0 shadow-sm">
+              <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+              <span>{t.hero.stats.satisfaction}</span>
+            </div>
           </div>
         </div>
 

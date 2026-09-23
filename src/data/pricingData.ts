@@ -254,19 +254,6 @@ export const koraIndividualServices = [
     quotePreset: "Bonjour Kôra Studio, je souhaite un devis pour l'accompagnement ISBN de mon livre."
   },
   {
-    id: 'audiobook',
-    emoji: '🎧',
-    title: {
-      fr: "Transcription livre → audio (Audiobook)",
-      en: "Audiobook Production"
-    },
-    desc: {
-      fr: "Production de la version audio de votre ouvrage avec voix expressive et mastering professionnel.",
-      en: "Production of the audiobook edition with professional voiceover and audio mastering."
-    },
-    quotePreset: "Bonjour Kôra Studio, je souhaite un devis pour créer la version audio (audiobook) de mon livre."
-  },
-  {
     id: 'meta-ads',
     emoji: '📢',
     title: {
@@ -278,19 +265,6 @@ export const koraIndividualServices = [
       en: "Targeted advertising campaigns to connect your book with your ideal readership."
     },
     quotePreset: "Bonjour Kôra Studio, je souhaite un devis pour une campagne de promotion Meta Ads."
-  },
-  {
-    id: 'kit-lancement',
-    emoji: '📣',
-    title: {
-      fr: "Kit de lancement & visuels promotionnels",
-      en: "Book Launch Kit & Social Media Creatives"
-    },
-    desc: {
-      fr: "Visuels promo pour réseaux sociaux, affiches, bannières et posts engageants pour annoncer votre sortie.",
-      en: "Social media announcement posts, posters, launch banners, and promotional mockups."
-    },
-    quotePreset: "Bonjour Kôra Studio, je souhaite un devis pour le Kit de lancement de mon livre."
   },
   {
     id: 'accompagnement-complet',

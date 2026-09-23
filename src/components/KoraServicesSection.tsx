@@ -68,21 +68,16 @@ export const KoraServicesSection: React.FC = () => {
           </a>
         </div>
 
-        {/* 10 Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
+        {/* Services Grid - All cards have the exact same uniform shape and styling */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
           {koraIndividualServices.map((svc, idx) => {
-            const isFullAccomp = svc.id === 'accompagnement-complet';
             const title = svc.title[language] || svc.title.fr;
             const desc = svc.desc[language] || svc.desc.fr;
 
             return (
               <div
                 key={svc.id}
-                className={`relative rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 group ${
-                  isFullAccomp
-                    ? 'sm:col-span-2 lg:col-span-3 bg-gradient-to-r from-zinc-900 via-[#1c1710] to-zinc-900 border-2 border-amber-500 shadow-xl shadow-amber-950/40'
-                    : 'bg-zinc-900/70 border border-white/10 hover:border-amber-500/40 hover:bg-zinc-900'
-                }`}
+                className="relative rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 group bg-zinc-900/70 border border-white/10 hover:border-amber-500/40 hover:bg-zinc-900"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -95,18 +90,18 @@ export const KoraServicesSection: React.FC = () => {
                     </span>
                   </div>
 
-                  <h3 className="text-base sm:text-lg font-bold text-white mb-2 group-hover:text-amber-300 transition-colors">
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-amber-300 transition-colors line-clamp-2">
                     {title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed mb-6">
+                  <p className="text-xs text-zinc-400 leading-relaxed mb-6">
                     {desc}
                   </p>
                 </div>
 
                 <div className="pt-4 border-t border-white/5 flex items-center justify-between">
                   <span className="text-[11px] text-zinc-500 font-semibold">
-                    Sur devis ou en formule
+                    Sur devis ou formule
                   </span>
 
                   <a
@@ -115,7 +110,7 @@ export const KoraServicesSection: React.FC = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300 group-hover:translate-x-0.5 transition-all"
                   >
-                    <span>Demander ce service</span>
+                    <span>Demander</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </a>
                 </div>

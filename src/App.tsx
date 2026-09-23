@@ -11,7 +11,6 @@ import { TestimonialsSection } from './components/TestimonialsSection';
 import { FaqSection } from './components/FaqSection';
 import { ContactFormSection } from './components/ContactFormSection';
 import { Footer } from './components/Footer';
-import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { PortfolioModal } from './components/PortfolioModal';
 import { AdminPortfolioModal } from './components/AdminPortfolioModal';
 import { PortfolioItem } from './types';
@@ -59,9 +58,6 @@ const MainContent: React.FC = () => {
 
       {/* Footer with Official Kôra Branding & Contacts */}
       <Footer onOpenAdmin={() => setIsAdminOpen(true)} />
-
-      {/* Floating Sticky WhatsApp Button */}
-      <FloatingWhatsApp />
 
       {/* Lightbox Modal for 10 Book Covers details */}
       <PortfolioModal

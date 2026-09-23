@@ -7,6 +7,7 @@ export const initialTestimonials: Testimonial[] = [
     country: "Cameroun",
     countryFlag: "🇨🇲",
     countryCode: "CM",
+    avatarUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=240&auto=format&fit=crop&q=80",
     profession: {
       fr: "Auteur & Consultant Financier",
       en: "Author & Financial Consultant"
@@ -26,6 +27,7 @@ export const initialTestimonials: Testimonial[] = [
     country: "Congo-Kinshasa",
     countryFlag: "🇨🇩",
     countryCode: "CD",
+    avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=240&auto=format&fit=crop&q=80",
     profession: {
       fr: "Écrivain & Essayiste",
       en: "Novelist & Essayist"
@@ -45,6 +47,7 @@ export const initialTestimonials: Testimonial[] = [
     country: "Mali",
     countryFlag: "🇲🇱",
     countryCode: "ML",
+    avatarUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=240&auto=format&fit=crop&q=80",
     profession: {
       fr: "Conférencière & Auteure",
       en: "Keynote Speaker & Author"
@@ -64,6 +67,7 @@ export const initialTestimonials: Testimonial[] = [
     country: "Burkina Faso",
     countryFlag: "🇧🇫",
     countryCode: "BF",
+    avatarUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=240&auto=format&fit=crop&q=80",
     profession: {
       fr: "Entrepreneur & Auteur",
       en: "Serial Entrepreneur & Author"
@@ -83,6 +87,7 @@ export const initialTestimonials: Testimonial[] = [
     country: "Canada",
     countryFlag: "🇨🇦",
     countryCode: "CA",
+    avatarUrl: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=240&auto=format&fit=crop&q=80",
     profession: {
       fr: "Auteur & Ancien Diplomate",
       en: "Author & Former Diplomat"
@@ -102,6 +107,7 @@ export const initialTestimonials: Testimonial[] = [
     country: "Congo-Brazzaville",
     countryFlag: "🇨🇬",
     countryCode: "CG",
+    avatarUrl: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=240&auto=format&fit=crop&q=80",
     profession: {
       fr: "Auteur Spirituel",
       en: "Spiritual Author"
