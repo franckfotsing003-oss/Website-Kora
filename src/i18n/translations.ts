@@ -276,7 +276,7 @@ export const translations = {
 
     // Footer
     footer: {
-      tagline: "Kôra Studio — Studio éditorial digital 100% en ligne. Accompagnement des auteurs indépendants d'Afrique francophone de la relecture à la publication.",
+      tagline: "Kôra Studio — Accompagnement des auteurs indépendants d'Afrique francophone de la relecture à la publication.",
       quickLinks: "Navigation",
       contactTitle: "Contact Direct",
       rights: "Tous droits réservés. Kôra Studio.",

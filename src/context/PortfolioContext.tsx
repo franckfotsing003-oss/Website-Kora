@@ -15,7 +15,7 @@ interface PortfolioContextType {
   importBackupJson: (jsonData: string) => boolean;
 }
 
-const STORAGE_KEY = 'atelier_bookcover_portfolio_v1';
+const STORAGE_KEY = 'kora_studio_creatives_v2_official';
 
 const PortfolioContext = createContext<PortfolioContextType | undefined>(undefined);
 

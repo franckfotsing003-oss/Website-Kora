@@ -1,26 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  /* Override amber and orange with the authentic champagne gold palette from image.png */
-  --color-amber-50: #FCF9EE;
-  --color-amber-100: #FBF4DC;
-  --color-amber-200: #F9EAB8;
-  --color-amber-300: #F7DF94;
-  --color-amber-400: #F5D681;
-  --color-amber-500: #E5C579;
-  --color-amber-600: #CBA351;
-  --color-amber-700: #A88135;
-  --color-amber-800: #7A5B1D;
-  --color-amber-900: #4F380C;
-  --color-amber-950: #1C1508;
+  /* Override amber and orange with the authentic metallic gold palette from user's image.png */
+  --color-amber-50: #FFFDF5;
+  --color-amber-100: #FFFBE6;
+  --color-amber-200: #FFF8C4;
+  --color-amber-300: #FDF1A9;
+  --color-amber-400: #F6D678;
+  --color-amber-500: #E6B85E;
+  --color-amber-600: #D49D42;
+  --color-amber-700: #BD7E24;
+  --color-amber-800: #8B5517;
+  --color-amber-900: #573307;
+  --color-amber-950: #241402;
 
-  --color-orange-50: #FCF9EE;
-  --color-orange-100: #FBF4DC;
-  --color-orange-200: #F9EAB8;
-  --color-orange-300: #F7DF94;
-  --color-orange-400: #F5D681;
-  --color-orange-500: #E5C579;
-  --color-orange-600: #CBA351;
+  --color-orange-50: #FFFDF5;
+  --color-orange-100: #FFFBE6;
+  --color-orange-200: #FFF8C4;
+  --color-orange-300: #FDF1A9;
+  --color-orange-400: #F6D678;
+  --color-orange-500: #E6B85E;
+  --color-orange-600: #D49D42;
 }
 
 @layer base {
@@ -58,58 +58,58 @@
   transform: translateY(-8px) rotateY(-6deg) rotateX(3deg);
   box-shadow: 
     -20px 24px 38px rgba(0, 0, 0, 0.85),
-    -4px 4px 22px rgba(245, 214, 129, 0.35),
+    -4px 4px 22px rgba(246, 214, 120, 0.35),
     inset 4px 0 10px rgba(255, 255, 255, 0.25);
 }
 
-/* Authentic Luxury Champagne Gold Gradient Utilities (Matching user image.png) */
+/* Authentic Luxury Metallic Gold Gradient from the user image.png */
 .text-gold-gradient {
-  background: linear-gradient(135deg, #FFF9D9 0%, #F5D681 35%, #E5C579 70%, #CBA351 100%);
+  background: linear-gradient(135deg, #FFF8C4 0%, #FDF1A9 22%, #E4B54D 45%, #D49D42 65%, #BD7E24 85%, #8B5517 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gold-pure {
-  color: #F5D681;
+  color: #F6D678;
 }
 
 .bg-gold-gradient {
-  background: linear-gradient(90deg, #FDECB0 0%, #F5D681 40%, #E5C579 75%, #D6AD50 100%);
+  background: linear-gradient(90deg, #D49D42 0%, #E6B85E 15%, #8B5517 30%, #D6A64B 45%, #FFF8C4 62%, #E4B54D 78%, #BD7E24 100%);
 }
 
 .bg-gold-metallic {
-  background: linear-gradient(135deg, #FFF9D9 0%, #F5D681 35%, #E5C579 70%, #CBA351 100%);
+  background: linear-gradient(135deg, #D49D42 0%, #E6B85E 15%, #8B5517 30%, #D6A64B 45%, #FFF8C4 62%, #E4B54D 78%, #BD7E24 100%);
 }
 
 .bg-gold-subtle {
-  background: linear-gradient(135deg, rgba(245, 214, 129, 0.12) 0%, rgba(203, 163, 81, 0.04) 100%);
+  background: linear-gradient(135deg, rgba(246, 214, 120, 0.14) 0%, rgba(139, 85, 23, 0.05) 100%);
 }
 
-/* Gold Button matching the WhatsApp pill and user image.png */
+/* Gold Button matching the exact user image.png */
 .btn-gold {
-  background: linear-gradient(90deg, #FDECB0 0%, #F5D681 35%, #E5C579 70%, #D6AD50 100%);
-  color: #0d0b06;
+  background: linear-gradient(90deg, #C7923E 0%, #E2B65C 20%, #F5D98B 48%, #E5BB63 75%, #C28B36 100%);
+  color: #0b0905;
   font-weight: 800;
-  box-shadow: 0 8px 24px -4px rgba(229, 197, 121, 0.4);
+  box-shadow: 0 8px 25px -4px rgba(226, 182, 92, 0.4);
   transition: all 0.25s ease;
 }
 
 .btn-gold:hover {
-  background: linear-gradient(90deg, #FFFFFF 0%, #FDECB0 35%, #F5D681 70%, #E5C579 100%);
-  box-shadow: 0 10px 30px -2px rgba(229, 197, 121, 0.6);
+  background: linear-gradient(90deg, #D49D42 0%, #F0CE7A 22%, #FFF4BE 50%, #F0CE7A 78%, #D49D42 100%);
+  box-shadow: 0 10px 30px -2px rgba(245, 217, 139, 0.55);
   transform: translateY(-2px);
 }
 
 .border-gold-gradient {
-  border-image: linear-gradient(135deg, #FDECB0, #F5D681, #CBA351) 1;
+  border-image: linear-gradient(135deg, #FFF8C4, #E6B85E, #8B5517) 1;
 }
 
 .gold-glow {
-  box-shadow: 0 0 35px -5px rgba(245, 214, 129, 0.3);
+  box-shadow: 0 0 35px -5px rgba(246, 214, 120, 0.35);
 }
 
 .gold-glow-lg {
-  box-shadow: 0 0 50px -5px rgba(245, 214, 129, 0.4);
+  box-shadow: 0 0 50px -5px rgba(246, 214, 120, 0.45);
 }
 
 .square-frame {
@@ -170,5 +170,5 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #e5c579;
+  background: #e6b85e;
 }

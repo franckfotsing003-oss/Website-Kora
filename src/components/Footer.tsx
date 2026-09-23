@@ -24,14 +24,16 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           
-          {/* Brand & Mission with Official Square Logo */}
+          {/* Brand & Mission with Official Logo Asset 3-8.png */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <KoraLogo variant="profile-square" size="sm" className="gold-glow border border-amber-400/40" />
-              <div>
-                <h3 className="text-base font-black text-white font-display">Kôra Studio</h3>
-                <p className="text-[11px] text-amber-300 font-semibold italic">Studio éditorial digital</p>
-              </div>
+            <div>
+              <a href="#hero" className="inline-block">
+                <img
+                  src="/Asset 3-8.png"
+                  alt="Kôra Studio"
+                  className="h-11 sm:h-14 w-auto object-contain"
+                />
+              </a>
             </div>
 
             <p className="text-zinc-300 leading-relaxed text-xs">

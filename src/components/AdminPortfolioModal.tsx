@@ -374,7 +374,7 @@ export const AdminPortfolioModal: React.FC<AdminPortfolioModalProps> = ({ isOpen
 
                 {/* Thumbnail Preview */}
                 {formImage && (
-                  <div className="mt-2 w-20 aspect-[1/1.5] rounded-lg overflow-hidden border border-white/20 relative">
+                  <div className="mt-2 w-20 aspect-square rounded-lg overflow-hidden border border-white/20 relative">
                     <img src={formImage} alt="Preview" className="w-full h-full object-cover" />
                   </div>
                 )}
@@ -512,7 +512,7 @@ export const AdminPortfolioModal: React.FC<AdminPortfolioModalProps> = ({ isOpen
                 >
                   {/* Thumbnail & Title */}
                   <div className="flex items-center gap-3 min-w-0">
-                    <div className="w-10 aspect-[1/1.5] rounded bg-zinc-800 overflow-hidden shrink-0 border border-white/10">
+                    <div className="w-10 aspect-square rounded bg-zinc-800 overflow-hidden shrink-0 border border-white/10">
                       <img src={item.image} alt={item.title.fr} className="w-full h-full object-cover" />
                     </div>
 

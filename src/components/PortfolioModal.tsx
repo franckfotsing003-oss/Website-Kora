@@ -75,18 +75,16 @@ export const PortfolioModal: React.FC<PortfolioModalProps> = ({
           <X className="w-5 h-5" />
         </button>
 
-        {/* Left: Square Frame Book Display (as requested: format carrée) */}
+        {/* Left: Square Cover Display (format carrée) */}
         <div className="md:w-1/2 bg-gradient-to-b from-[#14120e] to-[#0a0b0e] p-6 sm:p-8 flex flex-col items-center justify-center relative border-b md:border-b-0 md:border-r border-white/10">
           
-          <div className="relative w-full max-w-[320px] aspect-square bg-zinc-900/90 rounded-2xl overflow-hidden shadow-2xl border border-amber-500/30 p-3 flex items-center justify-center">
-            <div className="relative h-full aspect-[1/1.4] rounded-r-xl overflow-hidden book-mockup-3d shadow-2xl">
-              <div className="absolute inset-0 pointer-events-none z-10 book-spine-shine"></div>
-              <img
-                src={item.image}
-                alt={bookTitle}
-                className="w-full h-full object-cover"
-              />
-            </div>
+          <div className="relative w-full max-w-[340px] aspect-square bg-black rounded-2xl overflow-hidden shadow-2xl border border-amber-500/30">
+            <img
+              src={item.image}
+              alt={bookTitle}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10 pointer-events-none"></div>
           </div>
 
           {/* Navigation Arrows below image */}
@@ -144,10 +142,17 @@ export const PortfolioModal: React.FC<PortfolioModalProps> = ({
 
             {/* Meta tags list */}
             <div className="grid grid-cols-2 gap-3 py-2 text-xs border-y border-white/10 text-zinc-300">
-              <div className="flex items-center gap-2">
-                <User className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>Auteur : <strong>{item.author}</strong></span>
-              </div>
+              {item.author ? (
+                <div className="flex items-center gap-2">
+                  <User className="w-4 h-4 text-amber-400 shrink-0" />
+                  <span>Auteur : <strong>{item.author}</strong></span>
+                </div>
+              ) : (
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-amber-400 shrink-0" />
+                  <span>Création : <strong>Kôra Studio</strong></span>
+                </div>
+              )}
               {item.country && (
                 <div className="flex items-center gap-2">
                   <Globe className="w-4 h-4 text-amber-400 shrink-0" />

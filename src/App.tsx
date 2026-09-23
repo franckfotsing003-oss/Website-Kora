@@ -3,7 +3,6 @@ import { LanguageProvider } from './context/LanguageContext';
 import { PortfolioProvider } from './context/PortfolioContext';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { ProofBar } from './components/ProofBar';
 import { PortfolioGallery } from './components/PortfolioGallery';
 import { PricingSection } from './components/PricingSection';
 import { KoraServicesSection } from './components/KoraServicesSection';
@@ -39,10 +38,7 @@ const MainContent: React.FC = () => {
           onOpenAdmin={() => setIsAdminOpen(true)}
         />
 
-        {/* 3. Proof Bar: International African Authors */}
-        <ProofBar />
-
-        {/* 4. Pricing & Turnkey Packages: Essentiel 150k, Standard 275k, Premium 450k */}
+        {/* 3. Pricing & Turnkey Packages: Essentiel 150k, Standard 275k, Premium 450k */}
         <PricingSection />
 
         {/* 5. Complete Editorial Services of Kôra Studio */}

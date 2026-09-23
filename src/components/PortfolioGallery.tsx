@@ -209,22 +209,17 @@ const SquareBookCard: React.FC<SquareBookCardProps> = ({ item, index, language, 
       onClick={() => onSelect(item)}
       className="group cursor-pointer select-none shrink-0 w-72 sm:w-80 flex flex-col bg-zinc-900/80 border border-white/10 hover:border-amber-400/60 rounded-3xl p-4 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-amber-950/40 hover:-translate-y-1.5"
     >
-      {/* 1:1 Square Frame for the Cover */}
-      <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-black/90 mb-3.5 border border-white/10 group-hover:border-amber-400/40 flex items-center justify-center p-3 shadow-inner">
-        
-        {/* Subtle gold corner highlight */}
-        <div className="absolute top-0 right-0 w-12 h-12 bg-gradient-to-bl from-amber-400/20 to-transparent pointer-events-none z-10"></div>
-        
-        {/* 3D Book Cover positioned inside the square frame */}
-        <div className="relative h-full aspect-[1/1.4] rounded-r-lg overflow-hidden book-mockup-3d shadow-2xl">
-          <div className="absolute inset-0 pointer-events-none z-10 book-spine-shine"></div>
-          <img
-            src={item.image}
-            alt={item.title[language] || item.title.fr}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            loading="lazy"
-          />
-        </div>
+      {/* Format carré 1:1 pour l'image de couverture (non portrait) */}
+      <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-black mb-3.5 border border-white/10 group-hover:border-amber-400/50 shadow-2xl transition-all duration-300">
+        <img
+          src={item.image}
+          alt={item.title[language] || item.title.fr}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+        />
+
+        {/* Subtle inner border glow */}
+        <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10 group-hover:ring-amber-400/40 pointer-events-none z-10"></div>
 
         {/* Hover Inspect Overlay */}
         <div className="absolute inset-0 bg-black/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-2 z-20 p-4 text-center">
@@ -252,22 +247,14 @@ const SquareBookCard: React.FC<SquareBookCardProps> = ({ item, index, language, 
         </div>
       </div>
 
-      {/* Book Metadata */}
-      <div className="space-y-1">
-        <h3 className="text-base font-extrabold text-white group-hover:text-amber-300 transition-colors line-clamp-1 font-display">
+      {/* Book Metadata: Title without author name */}
+      <div className="pt-2 flex items-center justify-between gap-2">
+        <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-amber-300 transition-colors line-clamp-1 font-display">
           {item.title[language] || item.title.fr}
         </h3>
-
-        <div className="flex items-center justify-between text-xs text-zinc-400">
-          <span className="truncate pr-2">
-            Par <strong className="text-zinc-200">{item.author}</strong>
-          </span>
-          {item.country && (
-            <span className="shrink-0 text-[11px] bg-white/5 border border-white/10 px-2 py-0.5 rounded text-amber-200">
-              {item.country}
-            </span>
-          )}
-        </div>
+        <span className="shrink-0 text-[10px] font-semibold uppercase tracking-wider text-amber-300/80 bg-black/60 border border-amber-400/20 px-2 py-0.5 rounded-full">
+          Kôra Créative
+        </span>
       </div>
 
     </div>

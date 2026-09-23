@@ -1,219 +1,208 @@
 import { PortfolioItem } from '../types';
 
 /**
- * Exactly 10 curated books for Kôra Studio showcase.
- * Formatted in 1:1 square ratio and smoothly animated from right to left.
+ * Exactly 10 Official Book Covers from Kôra Studio.
+ * Real covers uploaded from GitHub repo with titles without author names ("titres sans nom").
  */
 export const initialPortfolioItems: PortfolioItem[] = [
   {
-    id: 'cov-01',
+    id: 'kora-creative-01',
     title: {
-      fr: "Les Secrets de l'Élite Financière",
-      en: "Secrets of the Financial Elite"
+      fr: "Le Coronavirus de A à Z",
+      en: "Coronavirus from A to Z"
     },
-    author: "Marc-Aurèle Tchouta",
-    category: "business",
-    country: "Cameroun",
-    countryCode: "CM",
-    image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80",
-    mockup3DImage: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1200&q=80",
+    author: "",
+    category: "education",
+    country: "Afrique & Monde",
+    image: "/books/coronavirus-de-a-a-z.jpg",
     description: {
-      fr: "Design épuré et percutant alliant typographie dorée en relief et noir satiné, pensé pour rayonner en tête de gondole.",
-      en: "Sleek, high-impact design featuring embossed gold typography and satin black finish, built to stand out on shelves."
+      fr: "Conception graphique éditoriale professionnelle pour l'ouvrage de référence sur le coronavirus.",
+      en: "Professional editorial cover design for the comprehensive coronavirus handbook."
     },
-    year: 2025,
+    year: 2024,
     featured: true,
     published: true,
     order: 1,
-    tags: ["Business", "Finances", "Typographie Dorée"]
+    tags: ["Santé", "Documentation", "Édition"]
   },
   {
-    id: 'cov-02',
+    id: 'kora-creative-02',
     title: {
-      fr: "Renaître de ses Cendres",
-      en: "Rising From the Ashes"
+      fr: "Le Diplôme ne suffit pas",
+      en: "The Degree is Not Enough"
     },
-    author: "Aminata Diallo",
+    author: "",
     category: "personal_dev",
-    country: "Mali",
-    countryCode: "ML",
-    image: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80",
+    country: "Afrique",
+    image: "/books/le-diplome-ne-suffit-pas.jpg",
     description: {
-      fr: "Composition émotionnelle et chaleureuse symbolisant la résilience et le renouveau personnel.",
-      en: "Warm and evocative composition symbolizing resilience, courage, and personal breakthrough."
+      fr: "Couverture moderne et percutante orientée mindset, insertion professionnelle et réussite financière.",
+      en: "High-impact modern cover for personal development and professional breakthrough."
     },
-    year: 2025,
+    year: 2024,
     featured: true,
     published: true,
     order: 2,
-    tags: ["Développement Personnel", "Motivation", "Résilience"]
+    tags: ["Développement Personnel", "Carrière", "Mindset"]
   },
   {
-    id: 'cov-03',
+    id: 'kora-creative-03',
     title: {
-      fr: "L'Ombre du Fleuve Congo",
-      en: "Shadow Over the Congo River"
+      fr: "31 Jours de Déclarations Puissantes",
+      en: "31 Days of Powerful Declarations"
     },
-    author: "Jean-Paul Mbemba",
-    category: "novel",
-    country: "Congo-Kinshasa",
-    countryCode: "CD",
-    image: "https://images.unsplash.com/photo-1532012164546-f432f2e3edd4?auto=format&fit=crop&w=800&q=80",
+    author: "",
+    category: "religion",
+    country: "Afrique",
+    image: "/books/31-jours-declarations-puissantes.jpg",
     description: {
-      fr: "Thriller politique et mystère avec une ambiance crépusculaire dramatique et un contraste saisissant.",
-      en: "Political thriller and gripping drama featuring a moody twilight aesthetic and sharp typography."
+      fr: "Direction artistique sobre et spirituelle avec lettrage soigné et symbolique forte.",
+      en: "Inspirational faith cover with elegant typography and spiritual symbolism."
     },
     year: 2025,
     featured: true,
     published: true,
     order: 3,
-    tags: ["Roman", "Thriller", "Fiction Africaine"]
+    tags: ["Foi", "Spiritualité", "Inspiration"]
   },
   {
-    id: 'cov-04',
+    id: 'kora-creative-04',
     title: {
-      fr: "Bâtir un Empire en Afrique",
-      en: "Building an Empire in Africa"
+      fr: "Humanitaire",
+      en: "Humanitarian"
     },
-    author: "Patrick K. Ouédraogo",
-    category: "business",
-    country: "Burkina Faso",
-    countryCode: "BF",
-    image: "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=800&q=80",
+    author: "",
+    category: "other",
+    country: "International",
+    image: "/books/humanitaire.jpg",
     description: {
-      fr: "Style moderne et autoritaire pour un guide entrepreneurial majeur, calibré pour attirer les dirigeants.",
-      en: "Modern and authoritative visual direction for an executive business playbook."
+      fr: "Conception visuelle dédiée aux engagements humanitaires, missions de terrain et ONG.",
+      en: "Visual identity and cover design dedicated to humanitarian missions and fieldwork."
     },
     year: 2024,
     featured: true,
     published: true,
     order: 4,
-    tags: ["Entrepreneuriat", "Stratégie", "Leadership"]
+    tags: ["Humanitaire", "Société", "Engagement"]
   },
   {
-    id: 'cov-05',
+    id: 'kora-creative-05',
     title: {
-      fr: "La Foi Qui Déplace les Montagnes",
-      en: "Faith That Moves Mountains"
+      fr: "Briser les Limites",
+      en: "Breaking the Limits"
     },
-    author: "Pasteur David Makosso",
-    category: "religion",
-    country: "Congo-Brazzaville",
-    countryCode: "CG",
-    image: "https://images.unsplash.com/photo-1507842229451-79b1be886a27?auto=format&fit=crop&w=800&q=80",
+    author: "",
+    category: "personal_dev",
+    country: "Afrique",
+    image: "/books/briser-les-limites-06.jpg",
     description: {
-      fr: "Ouvrage spirituel inspirant avec un travail de lumière céleste et de typographie sereine.",
-      en: "Inspiring spiritual book cover with transcendent lighting and refined serif lettering."
+      fr: "Création dynamique et inspirante pour transcender les blocages et dépasser ses limites.",
+      en: "Dynamic and motivating cover design to overcome obstacles and unlock human potential."
     },
     year: 2025,
     featured: true,
     published: true,
     order: 5,
-    tags: ["Spiritualité", "Inspiration", "Chrétien"]
+    tags: ["Motivation", "Leadership", "Dépassement"]
   },
   {
-    id: 'cov-06',
+    id: 'kora-creative-06',
     title: {
-      fr: "Mémoires d'un Diplomate Panafricain",
-      en: "Memoirs of a Pan-African Diplomat"
+      fr: "Peau d'Or",
+      en: "Golden Skin"
     },
-    author: "Amb. Samuel Nguema",
-    category: "biography",
-    country: "Gabon & Diaspora",
-    countryCode: "GA",
-    image: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=800&q=80",
+    author: "",
+    category: "novel",
+    country: "Afrique",
+    image: "/books/peau-dor.jpg",
     description: {
-      fr: "Édition biographique de prestige, reliure visuelle soignée et respect de l'héritage historique.",
-      en: "Prestige biographical edition with historical dignity and timeless editorial balance."
+      fr: "Créative raffinée sublimée de nuances d'or et d'élégance texturée pour ce récit captivant.",
+      en: "Exquisite gold-infused cover design blending warmth, dignity, and literary prestige."
     },
     year: 2024,
     featured: true,
     published: true,
     order: 6,
-    tags: ["Biographie", "Histoire", "Mémoires"]
+    tags: ["Roman", "Littérature", "Or"]
   },
   {
-    id: 'cov-07',
+    id: 'kora-creative-07',
     title: {
-      fr: "Guide Moderne des Mathématiques Supérieures",
-      en: "Modern Guide to Higher Mathematics"
+      fr: "Éduquer sans Crier, C'est Possible",
+      en: "Parenting Without Yelling is Possible"
     },
-    author: "Dr. Eric Kamdem",
+    author: "",
     category: "education",
-    country: "Cameroun",
-    countryCode: "CM",
-    image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80",
+    country: "Afrique & Diaspora",
+    image: "/books/eduquer-sans-crier.jpg",
     description: {
-      fr: "Manuel universitaire structuré, géométrie rigoureuse et lisibilité maximale.",
-      en: "Structured academic manual designed with geometric precision and crystal-clear hierarchy."
+      fr: "Couverture chaleureuse et bienveillante pour un guide pratique d'éducation positive et parentale.",
+      en: "Warm and caring cover design for positive parenting and education."
     },
     year: 2024,
     featured: true,
     published: true,
     order: 7,
-    tags: ["Éducation", "Sciences", "Universitaire"]
+    tags: ["Éducation", "Famille", "Parentalité"]
   },
   {
-    id: 'cov-08',
+    id: 'kora-creative-08',
     title: {
-      fr: "Le Chant des Baobabs",
-      en: "Song of the Baobabs"
+      fr: "Mariage Aveugle",
+      en: "Blind Marriage"
     },
-    author: "Fatou Traoré",
+    author: "",
     category: "novel",
-    country: "Mali",
-    countryCode: "ML",
-    image: "https://images.unsplash.com/photo-1476275466078-4007374efbbe?auto=format&fit=crop&w=800&q=80",
+    country: "Afrique",
+    image: "/books/mariage-aveugle.jpg",
     description: {
-      fr: "Roman poétique et envoûtant, palette de coucher de soleil chaud et typographie narrative soignée.",
-      en: "Poetic African fiction with a glowing sunset palette and delicate narrative typography."
+      fr: "Atmosphère dramatique et typographie saisissante pour une fiction narrative poignante.",
+      en: "Dramatic storytelling cover capturing tension, mystery, and romance."
     },
-    year: 2025,
+    year: 2024,
     featured: true,
     published: true,
     order: 8,
-    tags: ["Roman", "Poésie", "Littérature"]
+    tags: ["Roman", "Relations", "Société"]
   },
   {
-    id: 'cov-09',
+    id: 'kora-creative-09',
     title: {
-      fr: "L'Art de Négocier à l'International",
-      en: "The Art of Global Negotiation"
+      fr: "Tu me respectes, je te respecte",
+      en: "You Respect Me, I Respect You"
     },
-    author: "Dr. Selim Yilmaz",
-    category: "business",
-    country: "Sénégal & Diaspora",
-    countryCode: "SN",
-    image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80",
+    author: "",
+    category: "personal_dev",
+    country: "Afrique & Diaspora",
+    image: "/books/tu-me-respectes.jpg",
     description: {
-      fr: "Livre d'affaires bilingue, design architectural géométrique pour un rayonnement mondial.",
-      en: "International business book, minimalist architectural grid built for global distribution."
+      fr: "Composition graphique expressive sur le respect mutuel dans les relations humaines et le couple.",
+      en: "Powerful visual expression centered on mutual respect in interpersonal relationships."
     },
-    year: 2025,
+    year: 2024,
     featured: true,
     published: true,
     order: 9,
-    tags: ["Business", "Négociation", "International"]
+    tags: ["Respect", "Relations", "Couple"]
   },
   {
-    id: 'cov-10',
+    id: 'kora-creative-10',
     title: {
-      fr: "L'Éveil du Leader Intègre",
-      en: "The Awakening of an Ethical Leader"
+      fr: "Briser les Limites",
+      en: "Breaking the Limits"
     },
-    author: "Reine Kouassi",
-    category: "personal_dev",
-    country: "Côte d'Ivoire",
-    countryCode: "CI",
-    image: "https://images.unsplash.com/photo-1544928147-79a2dbc1f389?auto=format&fit=crop&w=800&q=80",
+    author: "",
+    category: "business",
+    country: "Afrique",
+    image: "/books/briser-les-limites-39.jpg",
     description: {
-      fr: "Manuel de leadership transformationnel et d'éthique pour les jeunes cadres africains.",
-      en: "Transformational leadership manual for ethical leadership in contemporary Africa."
+      fr: "Direction artistique percutante pour l'essor entrepreneurial et le leadership transformationnel.",
+      en: "High-impact visual direction for entrepreneurial breakthrough and leadership."
     },
     year: 2025,
     featured: true,
     published: true,
     order: 10,
-    tags: ["Leadership", "Management", "Afrique"]
+    tags: ["Business", "Leadership", "Succès"]
   }
 ];

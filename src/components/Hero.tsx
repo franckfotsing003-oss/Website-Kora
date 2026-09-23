@@ -79,26 +79,26 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Primary & Secondary Call to Actions with true Gold Gradient */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 max-w-lg mx-auto">
+        {/* Primary & Secondary Call to Actions with true Gold Gradient - Single Line buttons */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-8 w-full max-w-5xl mx-auto px-4">
           <a
             id="hero-primary-whatsapp-btn"
             href={createWhatsAppLink()}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 btn-gold text-base sm:text-lg font-extrabold px-8 py-4 rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3.5 btn-gold text-sm sm:text-base md:text-lg font-black px-8 sm:px-10 md:px-12 py-4 sm:py-4.5 rounded-2xl whitespace-nowrap shadow-xl shadow-amber-950/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 select-none"
           >
-            <MessageCircle className="w-5 h-5 fill-current text-black" />
-            <span>{t.hero.ctaPrimary}</span>
+            <MessageCircle className="w-5 h-5 fill-current text-black shrink-0" />
+            <span className="whitespace-nowrap tracking-tight sm:tracking-normal">{t.hero.ctaPrimary}</span>
           </a>
 
           <a
             id="hero-secondary-pricing-btn"
             href="#tarifs"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-zinc-900/90 hover:bg-zinc-800 text-zinc-100 border border-amber-400/30 hover:border-amber-400 text-base sm:text-lg font-semibold px-7 py-4 rounded-xl transition-all duration-200"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#111215] hover:bg-[#18191f] text-white border border-white/20 hover:border-amber-400/50 text-sm sm:text-base md:text-lg font-bold px-8 sm:px-10 md:px-12 py-4 sm:py-4.5 rounded-2xl whitespace-nowrap transition-all duration-200 shadow-lg select-none"
           >
-            <span>{t.hero.ctaSecondary}</span>
-            <ArrowRight className="w-4 h-4 text-amber-300" />
+            <span className="whitespace-nowrap tracking-tight sm:tracking-normal">{t.hero.ctaSecondary}</span>
+            <ArrowRight className="w-4 h-4 text-amber-300 shrink-0" />
           </a>
         </div>
 
