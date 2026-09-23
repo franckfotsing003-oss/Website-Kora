@@ -51,7 +51,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
             </h4>
             <ul className="space-y-2">
               <li><a href="#hero" className="hover:text-amber-300 transition-colors">{t.nav.home}</a></li>
-              <li><a href="#portfolio" className="hover:text-amber-300 transition-colors">10 Ouvrages Réalisés</a></li>
+              <li><a href="#portfolio" className="hover:text-amber-300 transition-colors">Nos Créatives</a></li>
               <li><a href="#tarifs" className="hover:text-amber-300 transition-colors">Formules & Tarifs</a></li>
               <li><a href="#services" className="hover:text-amber-300 transition-colors">Tous nos Services</a></li>
               <li><a href="#a-propos" className="hover:text-amber-300 transition-colors">À Propos du Studio</a></li>

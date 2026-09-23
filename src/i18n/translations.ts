@@ -5,7 +5,7 @@ export const translations = {
       home: "Accueil",
       services: "Services",
       about: "À Propos",
-      portfolio: "Réalisations",
+      portfolio: "Nos Créatives",
       pricing: "Offres Éditoriales",
       process: "Processus",
       testimonials: "Témoignages",
@@ -133,11 +133,11 @@ export const translations = {
       taglineBar: "Édition · Direction artistique · Mise en page · Publication · Promotion"
     },
 
-    // Portfolio
+    // Portfolio / Nos Créatives
     portfolio: {
-      badge: "Nos Réalisations",
-      title: "Ouvrages & Couvertures Réalisés par Kôra Studio",
-      subtitle: "Découvrez quelques-uns des 230+ ouvrages que nous avons façonnés pour des auteurs passionnés. Tous présentés au format carré pour une appréciation optimale.",
+      badge: "Nos Créatives",
+      title: "Nos Créatives Réalisées par Kôra Studio",
+      subtitle: "Découvrez nos couvertures et conceptions professionnelles façonnées pour des auteurs d'Afrique francophone. Présentation au format carré et défilement continu.",
       searchPlaceholder: "Rechercher par titre, auteur ou pays...",
       allCategories: "Tous les genres",
       categories: {
@@ -419,11 +419,11 @@ export const translations = {
       taglineBar: "Publishing · Artistic Direction · Book Layout · Distribution · Promotion"
     },
 
-    // Portfolio
+    // Portfolio / Our Creatives
     portfolio: {
-      badge: "Our Portfolio",
-      title: "Books & Covers Crafted by Kôra Studio",
-      subtitle: "Explore some of the 230+ books we have shaped for passionate authors. Displayed in elegant square frames for optimal viewing.",
+      badge: "Our Creatives",
+      title: "Our Creatives Designed by Kôra Studio",
+      subtitle: "Explore professional book covers and layouts crafted for francophone African authors. Displayed in elegant square frames with continuous scrolling.",
       searchPlaceholder: "Search by title, author, or country...",
       allCategories: "All genres",
       categories: {

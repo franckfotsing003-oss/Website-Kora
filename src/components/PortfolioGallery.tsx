@@ -59,7 +59,7 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
             <div className="inline-flex items-center gap-2 bg-[#1c170e] border border-amber-400/40 px-3.5 py-1.5 rounded-full mb-3 shadow-md">
               <Sparkles className="w-3.5 h-3.5 text-amber-300" />
               <span className="text-xs font-bold uppercase tracking-wider text-amber-200">
-                {t.portfolio.badge} · 10 Ouvrages d'Auteurs
+                {t.portfolio.badge}
               </span>
             </div>
 
@@ -68,7 +68,7 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
             </h2>
 
             <p className="text-sm sm:text-base text-zinc-300">
-              Découvrez notre sélection de 10 couvertures professionnelles conçues sur mesure. Survolez un livre pour mettre en pause et cliquez pour afficher ses détails.
+              Découvrez nos créatives et couvertures professionnelles façonnées sur mesure. Survolez une création pour mettre en pause et cliquez pour afficher ses détails.
             </p>
           </div>
 

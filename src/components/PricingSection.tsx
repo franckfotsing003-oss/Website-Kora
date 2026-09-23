@@ -146,20 +146,16 @@ export const PricingSection: React.FC = () => {
                   )}
                 </div>
 
-                {/* Bottom CTA Button */}
+                {/* Bottom CTA Button - All packages get the authentic Gold Gradient button */}
                 <div className="pt-4 border-t border-white/10 mt-4">
                   <a
                     id={`cta-package-${pkg.id}`}
                     href={createWhatsAppLink(msg)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-full inline-flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl text-xs sm:text-sm font-extrabold transition-all duration-200 ${
-                      isStandard
-                        ? 'btn-gold text-black shadow-xl shadow-amber-950/60 transform hover:scale-[1.02]'
-                        : 'bg-zinc-800 hover:bg-zinc-700 text-white border border-amber-400/20 hover:border-amber-400/50 hover:text-amber-200'
-                    }`}
+                    className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl text-xs sm:text-sm font-extrabold btn-gold text-black shadow-xl transform hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
                   >
-                    <MessageCircle className="w-4 h-4 fill-current" />
+                    <MessageCircle className="w-4 h-4 fill-current text-black" />
                     <span>Choisir cette formule sur WhatsApp</span>
                   </a>
                 </div>
