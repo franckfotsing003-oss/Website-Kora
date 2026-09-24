@@ -3,6 +3,7 @@ import { LanguageProvider } from './context/LanguageContext';
 import { PortfolioProvider } from './context/PortfolioContext';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
+import { FeaturedCoversShowcase } from './components/FeaturedCoversShowcase';
 import { PortfolioGallery } from './components/PortfolioGallery';
 import { PricingSection } from './components/PricingSection';
 import { KoraServicesSection } from './components/KoraServicesSection';
@@ -11,6 +12,7 @@ import { TestimonialsSection } from './components/TestimonialsSection';
 import { FaqSection } from './components/FaqSection';
 import { ContactFormSection } from './components/ContactFormSection';
 import { Footer } from './components/Footer';
+import { FloatingKoralieAssistant } from './components/KoralieMascot';
 import { PortfolioModal } from './components/PortfolioModal';
 import { AdminPortfolioModal } from './components/AdminPortfolioModal';
 import { PortfolioItem } from './types';
@@ -28,10 +30,13 @@ const MainContent: React.FC = () => {
 
       {/* Streamlined, High-Impact Flow focused on the essentials */}
       <main className="flex-1">
-        {/* 1. Hero: Title, value proposition, Leitmotiv & Primary CTAs (No redundant covers) */}
+        {/* 1. Hero: Title, value proposition, Leitmotiv & Primary CTAs */}
         <Hero />
 
-        {/* 2. Exactly 10 Curated Book Covers in Square Format, Scrolling Right-to-Left */}
+        {/* MODIFICATION 01: 5 Couvertures de livre (Première de couverture) en arc 3D entre Hero et Nos Créatives */}
+        <FeaturedCoversShowcase />
+
+        {/* 2. Nos Créatives: Gallerie avec double rangée immersive à sens inverse */}
         <PortfolioGallery 
           onSelectProject={(item) => setSelectedProject(item)} 
           onOpenAdmin={() => setIsAdminOpen(true)}
@@ -58,6 +63,9 @@ const MainContent: React.FC = () => {
 
       {/* Footer with Official Kôra Branding & Contacts */}
       <Footer onOpenAdmin={() => setIsAdminOpen(true)} />
+
+      {/* MODIFICATION 02: Assistant flottant stratégique avec la mascotte Koralie */}
+      <FloatingKoralieAssistant />
 
       {/* Lightbox Modal for 10 Book Covers details */}
       <PortfolioModal

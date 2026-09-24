@@ -10,6 +10,7 @@ import {
   BookOpen,
   FileText
 } from 'lucide-react';
+import { KoralieAvatar } from './KoralieMascot';
 
 export const ContactFormSection: React.FC = () => {
   const { t } = useLanguage();
@@ -64,14 +65,22 @@ export const ContactFormSection: React.FC = () => {
                 </p>
               </div>
 
-              {/* Direct WhatsApp Callout */}
+              {/* Direct WhatsApp Callout with Mascot Koralie */}
               <div className="p-4 rounded-2xl bg-black/50 border border-amber-500/30 space-y-3">
-                <span className="text-xs font-bold text-amber-300 block">
-                  {t.contactForm.directWhatsappNote}
-                </span>
+                <div className="flex items-center gap-3">
+                  <KoralieAvatar size="sm" showHalo={true} />
+                  <div>
+                    <span className="text-xs font-bold text-amber-300 block">
+                      Conseil direct avec Koralie
+                    </span>
+                    <span className="text-[11px] text-zinc-400 block">
+                      Réponse moyenne en moins de 15 minutes
+                    </span>
+                  </div>
+                </div>
 
                 <a
-                  href={createWhatsAppLink()}
+                  href={createWhatsAppLink("Bonjour Koralie, je remplis le formulaire pour mon manuscrit.")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold py-3 px-4 rounded-xl text-xs sm:text-sm shadow-lg shadow-amber-950/50 transition-all"

@@ -32,6 +32,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAdmin }) => {
   // Streamlined nav links matching the essential sections
   const navLinks = [
     { label: t.nav.home, href: "#hero" },
+    { label: "Showcase 3D", href: "#premieres-couvertures" },
     { label: t.nav.portfolio || "Nos Créatives", href: "#portfolio" },
     { label: t.nav.pricing, href: "#tarifs" },
     { label: t.nav.services, href: "#services" },

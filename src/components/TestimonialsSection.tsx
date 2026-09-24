@@ -41,30 +41,28 @@ export const TestimonialsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 bg-[#1c170e] border border-amber-400/40 px-3.5 py-1.5 rounded-full mb-3 shadow-md">
-              <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-              <span className="text-xs font-bold uppercase tracking-wider text-amber-200">
-                {t.testimonials.badge} · Retours d'Auteurs
-              </span>
-            </div>
-
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-white font-display mb-3">
-              {t.testimonials.title}
-            </h2>
-
-            <p className="text-sm sm:text-base text-zinc-300">
-              {t.testimonials.subtitle} · Défilement continu des avis réels de nos auteurs accompagnés.
-            </p>
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="inline-flex items-center gap-2 bg-[#1c170e] border border-amber-400/40 px-3.5 py-1.5 rounded-full mb-4 shadow-md">
+            <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+            <span className="text-xs font-bold uppercase tracking-wider text-amber-200">
+              {t.testimonials.badge}
+            </span>
           </div>
 
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white font-display mb-4">
+            {t.testimonials.title}
+          </h2>
+
+          <p className="text-sm sm:text-base text-zinc-300 max-w-2xl mx-auto mb-6">
+            {t.testimonials.subtitle} · Défilement continu des avis réels de nos auteurs accompagnés.
+          </p>
+
           {/* Controls: Pause / Play & Manual Navigation */}
-          <div className="flex items-center gap-2.5 shrink-0">
+          <div className="flex items-center justify-center gap-2.5">
             <button
               type="button"
               onClick={() => setIsPaused(!isPaused)}
-              className="inline-flex items-center gap-1.5 bg-zinc-900/90 hover:bg-zinc-800 text-zinc-300 hover:text-amber-300 border border-white/10 hover:border-amber-400/30 text-xs font-semibold px-3 py-2 rounded-xl transition-all"
+              className="inline-flex items-center gap-1.5 bg-zinc-900/90 hover:bg-zinc-800 text-zinc-300 hover:text-amber-300 border border-white/10 hover:border-amber-400/30 text-xs font-semibold px-3.5 py-2 rounded-xl transition-all"
               title={isPaused ? "Reprendre le défilement" : "Mettre en pause"}
             >
               {isPaused ? (

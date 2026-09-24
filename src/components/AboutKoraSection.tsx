@@ -11,6 +11,7 @@ import {
   ShieldCheck,
   CheckCircle2
 } from 'lucide-react';
+import { KoralieStudioAmbassadorCard } from './KoralieMascot';
 
 export const AboutKoraSection: React.FC = () => {
   const { t } = useLanguage();
@@ -109,6 +110,9 @@ export const AboutKoraSection: React.FC = () => {
           </div>
 
         </div>
+
+        {/* Strategic Mascot Presentation: Koralie introduces Kôra Studio */}
+        <KoralieStudioAmbassadorCard />
 
         {/* Big Leitmotiv Showcase Callout with Gold Gradient */}
         <div className="relative rounded-3xl bg-gradient-to-r from-[#17140e] via-[#241e14] to-[#17140e] border-2 border-amber-400/40 p-8 sm:p-10 shadow-2xl text-center">

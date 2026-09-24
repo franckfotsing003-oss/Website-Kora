@@ -42,6 +42,18 @@ export const Hero: React.FC = () => {
               <Users className="w-3.5 h-3.5 text-amber-400" />
               <span>« {siteConfig.leitmotiv} »</span>
             </div>
+
+            <a 
+              href="#a-propos"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#1c170e] to-black border border-amber-400/40 hover:border-amber-400 px-3.5 py-1.5 rounded-full shadow-md text-xs font-bold text-amber-200 hover:text-white transition-all hover:scale-105"
+            >
+              <img 
+                src="/mascotte-koralie.jpg" 
+                alt="Mascotte Koralie" 
+                className="w-4 h-4 rounded-full object-cover border border-amber-400"
+              />
+              <span>Mascotte <strong className="text-amber-300">Koralie</strong></span>
+            </a>
           </div>
         </div>
 
