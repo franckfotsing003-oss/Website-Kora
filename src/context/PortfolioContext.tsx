@@ -15,7 +15,7 @@ interface PortfolioContextType {
   importBackupJson: (jsonData: string) => boolean;
 }
 
-const STORAGE_KEY = 'kora_studio_creatives_v2_official';
+const STORAGE_KEY = 'kora_studio_creatives_v6_github_verified';
 
 const PortfolioContext = createContext<PortfolioContextType | undefined>(undefined);
 
@@ -25,7 +25,7 @@ export const PortfolioProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) {
+        if (Array.isArray(parsed) && parsed.length >= initialPortfolioItems.length) {
           return parsed;
         }
       }

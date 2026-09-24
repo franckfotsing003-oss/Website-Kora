@@ -134,6 +134,12 @@
   100% { transform: translateX(-50%); }
 }
 
+/* Infinite Marquee animations - scrolling smoothly in opposite direction (left to right) */
+@keyframes marquee-left-to-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
 .animate-marquee-rtl {
   display: flex;
   width: max-content;
@@ -141,6 +147,16 @@
 }
 
 .animate-marquee-rtl:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-ltr {
+  display: flex;
+  width: max-content;
+  animation: marquee-left-to-right 40s linear infinite;
+}
+
+.animate-marquee-ltr:hover {
   animation-play-state: paused;
 }
 

@@ -56,7 +56,7 @@ export const PortfolioModal: React.FC<PortfolioModalProps> = ({
   const bookTitle = item.title[language] || item.title.fr;
   const bookDesc = item.description ? (item.description[language] || item.description.fr) : '';
 
-  const whatsappMessage = `Bonjour Kôra Studio ! J'ai vu l'ouvrage "${bookTitle}" de l'auteur ${item.author} sur votre site. J'aimerais concrétiser un projet éditorial similaire pour mon propre livre.`;
+  const whatsappMessage = `Bonjour Kôra Studio ! J'ai vu l'ouvrage "${bookTitle}"${item.author ? ` de l'auteur ${item.author}` : ''} sur votre site. J'aimerais concrétiser un projet éditorial similaire pour mon propre livre.`;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">

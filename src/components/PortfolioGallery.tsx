@@ -10,7 +10,8 @@ import {
   Play, 
   ChevronLeft, 
   ChevronRight,
-  BookOpen
+  BookOpen,
+  ArrowRightLeft
 } from 'lucide-react';
 
 interface PortfolioGalleryProps {
@@ -19,8 +20,10 @@ interface PortfolioGalleryProps {
 }
 
 /**
- * Curated 10 Books Showcase.
- * Strictly 10 books in 1:1 square format, scrolling smoothly from right to left.
+ * Curated Two-Row Showcase for "Nos Créatives"
+ * - Ligne 1: 10 premiers ouvrages - défilement de Droite à Gauche (animate-marquee-rtl)
+ * - Ligne 2: 10 ouvrages personnalisés (Kora Books) - défilement en Sens Inverse de Gauche à Droite (animate-marquee-ltr)
+ * - Format carré 1:1, cartes interactives avec aperçu et modal détaillé
  */
 export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({ 
   onSelectProject, 
@@ -29,17 +32,30 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
   const { t, language } = useLanguage();
   const { publishedItems } = usePortfolio();
   
-  // Strictly take 10 items
-  const tenBooks = publishedItems.slice(0, 10);
+  // Row 1: First 10 curated books
+  const row1Books = publishedItems.slice(0, 10);
+  
+  // Row 2: Second set of 10 books (Kora Books: Vendre ou Mourir Pauvre, Jesus Transforme-moi, etc.)
+  // If publishedItems has more than 10, take 10 to 20, otherwise fallback gracefully
+  const row2Books = publishedItems.length > 10 
+    ? publishedItems.slice(10, 20) 
+    : publishedItems.slice(0, 10);
 
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef1 = useRef<HTMLDivElement>(null);
+  const scrollContainerRef2 = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
 
   const scrollManual = (direction: 'left' | 'right') => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = 360;
-      scrollContainerRef.current.scrollBy({
+    const scrollAmount = 360;
+    if (scrollContainerRef1.current) {
+      scrollContainerRef1.current.scrollBy({
         left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+    if (scrollContainerRef2.current) {
+      scrollContainerRef2.current.scrollBy({
+        left: direction === 'left' ? scrollAmount : -scrollAmount,
         behavior: 'smooth'
       });
     }
@@ -49,7 +65,7 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
     <section id="portfolio" className="py-20 lg:py-24 bg-[#08090b] relative overflow-hidden border-t border-amber-400/20">
       
       {/* Subtle gold ambient lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[350px] bg-[#d4a038]/10 blur-[160px] rounded-full pointer-events-none -z-10"></div>
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[450px] bg-[#d4a038]/10 blur-[180px] rounded-full pointer-events-none -z-10"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
         
@@ -68,7 +84,7 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
             </h2>
 
             <p className="text-sm sm:text-base text-zinc-300">
-              Découvrez nos créatives et couvertures professionnelles façonnées sur mesure. Survolez une création pour mettre en pause et cliquez pour afficher ses détails.
+              Découvrez nos créatives et couvertures professionnelles en format carré. Deux rangées à double sens de défilement immersif : survolez un livre pour mettre en pause et cliquez pour afficher sa fiche technique.
             </p>
           </div>
 
@@ -130,54 +146,126 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
 
       </div>
 
-      {/* Marquee Container with smooth side-fades */}
-      <div 
-        ref={scrollContainerRef}
-        className="relative w-full overflow-x-auto no-scrollbar py-4"
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-      >
-        {/* Left & Right gradient edge masks */}
-        <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-[#08090b] to-transparent pointer-events-none z-20"></div>
-        <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-[#08090b] to-transparent pointer-events-none z-20"></div>
+      {/* ======================================================== */}
+      {/* LIGNE 1 : DÉFILEMENT DE DROITE À GAUCHE (Série Signature) */}
+      {/* ======================================================== */}
+      <div className="mb-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-2 flex items-center justify-between text-xs text-zinc-400">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+            <span className="font-semibold text-zinc-200">Série Signature 01</span>
+            <span className="text-zinc-500">· Défilement continu Est &rarr; Ouest</span>
+          </div>
+          <span className="text-[11px] text-zinc-500 hidden sm:inline">10 créations exclusives</span>
+        </div>
 
-        {/* Continuous Scrolling Track (Right to Left): Duplicating the 10 books for infinite smooth loop */}
         <div 
-          className={`flex gap-6 items-center px-4 w-max ${
-            isPaused ? '' : 'animate-marquee-rtl'
-          }`}
-          style={{
-            animationPlayState: isPaused ? 'paused' : 'running'
-          }}
+          ref={scrollContainerRef1}
+          className="relative w-full overflow-x-auto no-scrollbar py-3"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          {/* First set of 10 books */}
-          {tenBooks.map((item, idx) => (
-            <SquareBookCard 
-              key={`book-1-${item.id || idx}`}
-              item={item}
-              index={idx + 1}
-              language={language}
-              onSelect={onSelectProject}
-            />
-          ))}
+          {/* Gradient edge masks */}
+          <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-[#08090b] to-transparent pointer-events-none z-20"></div>
+          <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-[#08090b] to-transparent pointer-events-none z-20"></div>
 
-          {/* Second duplicate set of 10 books for seamless infinite loop */}
-          {tenBooks.map((item, idx) => (
-            <SquareBookCard 
-              key={`book-2-${item.id || idx}`}
-              item={item}
-              index={idx + 1}
-              language={language}
-              onSelect={onSelectProject}
-            />
-          ))}
+          {/* Continuous Scrolling Track (Right to Left) */}
+          <div 
+            className={`flex gap-6 items-center px-4 w-max ${
+              isPaused ? '' : 'animate-marquee-rtl'
+            }`}
+            style={{
+              animationPlayState: isPaused ? 'paused' : 'running'
+            }}
+          >
+            {/* Set 1 */}
+            {row1Books.map((item, idx) => (
+              <SquareBookCard 
+                key={`row1-set1-${item.id || idx}`}
+                item={item}
+                index={idx + 1}
+                language={language}
+                onSelect={onSelectProject}
+              />
+            ))}
+
+            {/* Set 2 (Duplicate for seamless loop) */}
+            {row1Books.map((item, idx) => (
+              <SquareBookCard 
+                key={`row1-set2-${item.id || idx}`}
+                item={item}
+                index={idx + 1}
+                language={language}
+                onSelect={onSelectProject}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ======================================================== */}
+      {/* LIGNE 2 : DÉFILEMENT DE GAUCHE À DROITE (Série Édition)   */}
+      {/* SENS INVERSE DEMANDÉ PAR L'UTILISATEUR                   */}
+      {/* ======================================================== */}
+      <div className="mt-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-2 flex items-center justify-between text-xs text-zinc-400">
+          <div className="flex items-center gap-2">
+            <ArrowRightLeft className="w-3.5 h-3.5 text-amber-400" />
+            <span className="font-semibold text-amber-300">Série Édition 02 · Kora Books</span>
+            <span className="text-zinc-500">· Défilement inverse Ouest &rarr; Est</span>
+          </div>
+          <span className="text-[11px] text-zinc-500 hidden sm:inline">10 créations d'auteurs</span>
+        </div>
+
+        <div 
+          ref={scrollContainerRef2}
+          className="relative w-full overflow-x-auto no-scrollbar py-3"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          {/* Gradient edge masks */}
+          <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-[#08090b] to-transparent pointer-events-none z-20"></div>
+          <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-[#08090b] to-transparent pointer-events-none z-20"></div>
+
+          {/* Continuous Scrolling Track in REVERSE (Left to Right) */}
+          <div 
+            className={`flex gap-6 items-center px-4 w-max ${
+              isPaused ? '' : 'animate-marquee-ltr'
+            }`}
+            style={{
+              animationPlayState: isPaused ? 'paused' : 'running'
+            }}
+          >
+            {/* Set 1 */}
+            {row2Books.map((item, idx) => (
+              <SquareBookCard 
+                key={`row2-set1-${item.id || idx}`}
+                item={item}
+                index={idx + 11}
+                language={language}
+                onSelect={onSelectProject}
+              />
+            ))}
+
+            {/* Set 2 (Duplicate for seamless loop) */}
+            {row2Books.map((item, idx) => (
+              <SquareBookCard 
+                key={`row2-set2-${item.id || idx}`}
+                item={item}
+                index={idx + 11}
+                language={language}
+                onSelect={onSelectProject}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Bottom Counter and reassurance */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 flex flex-wrap items-center justify-between text-xs text-zinc-400 gap-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 flex flex-wrap items-center justify-between text-xs text-zinc-400 gap-3 border-t border-white/5 pt-6">
         <div className="flex items-center gap-2">
           <BookOpen className="w-3.5 h-3.5 text-amber-300" />
-          <span>Présentation des <strong>{tenBooks.length} ouvrages</strong> sélectionnés · Format carré</span>
+          <span>
+            Présentation des <strong>{publishedItems.length} ouvrages</strong> sélectionnés · 2 lignes à défilement inversé
+          </span>
         </div>
 
         <div className="flex items-center gap-4 text-[11px] text-zinc-500">
@@ -201,9 +289,29 @@ interface SquareBookCardProps {
 }
 
 /**
- * Dedicated Square Book Card (Requirement 06: "en format carrée et sa defile")
+ * Dedicated Square Book Card (Format carré 1:1)
  */
 const SquareBookCard: React.FC<SquareBookCardProps> = ({ item, index, language, onSelect }) => {
+  const [imgSrc, setImgSrc] = useState(item.image);
+  const [hasError, setHasError] = useState(false);
+
+  React.useEffect(() => {
+    setImgSrc(item.image);
+    setHasError(false);
+  }, [item.image]);
+
+  const handleImageError = () => {
+    if (!hasError) {
+      setHasError(true);
+      // Fallback strategies: try clean slug or direct root path
+      if (imgSrc.startsWith('/books/')) {
+        setImgSrc(imgSrc.replace('/books/', '/'));
+      } else {
+        setImgSrc('/books/briser-les-limites-06.jpg');
+      }
+    }
+  };
+
   return (
     <div
       onClick={() => onSelect(item)}
@@ -212,8 +320,9 @@ const SquareBookCard: React.FC<SquareBookCardProps> = ({ item, index, language, 
       {/* Format carré 1:1 pour l'image de couverture (non portrait) */}
       <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-black mb-3.5 border border-white/10 group-hover:border-amber-400/50 shadow-2xl transition-all duration-300">
         <img
-          src={item.image}
+          src={imgSrc}
           alt={item.title[language] || item.title.fr}
+          onError={handleImageError}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />

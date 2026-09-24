@@ -1,10 +1,24 @@
 import { PortfolioItem } from '../types';
 
 /**
- * Exactly 10 Official Book Covers from Kôra Studio.
- * Real covers uploaded from GitHub repo with titles without author names ("titres sans nom").
+ * Curated Collection of Official Book Covers from Kôra Studio.
+ * Row 1 (Items 1-10): Official prestige showcase covers.
+ * Row 2 (Items 11-20): 10 custom requested book covers from user's GitHub assets:
+ *   - Kora Books (3) Vendre ou Mourir Pauvre
+ *   - Kora Books (5) Jesus Transforme-moi
+ *   - Kora Books (6) Une Epoque Formidable
+ *   - Kora Books (8) Le grand Menage
+ *   - Kora Books (9) Tu me respectes je te respectes
+ *   - Kora Books (10) Entre l'autel et la chair
+ *   - Kora Books (11) Diplomatie Militaire
+ *   - Kora Books (12) Tu me respectes je te respectes
+ *   - Kora Books (13) Eduquer sans crier c'est possible
+ *   - Kora Books (14) L'anniversaire de la parentalité
  */
 export const initialPortfolioItems: PortfolioItem[] = [
+  // ==========================================
+  // LIGNE 1 : SÉRIE SIGNATURE (Défilement Droite -> Gauche)
+  // ==========================================
   {
     id: 'kora-creative-01',
     title: {
@@ -204,5 +218,210 @@ export const initialPortfolioItems: PortfolioItem[] = [
     published: true,
     order: 10,
     tags: ["Business", "Leadership", "Succès"]
+  },
+
+  // ==========================================
+  // LIGNE 2 : SÉRIE ÉDITION (Défilement Gauche -> Droite - Sens Inverse)
+  // Les 10 livres spécifiés dans la demande utilisateur
+  // ==========================================
+  {
+    id: 'kora-creative-11',
+    title: {
+      fr: "Vendre ou Mourir Pauvre",
+      en: "Sell or Die Poor"
+    },
+    author: "Paul Pogbus",
+    category: "business",
+    country: "Afrique & Diaspora",
+    image: "/books/kora-books-3.jpg",
+    description: {
+      fr: "Kora Books (3) — Stratégies directes de vente, de persuasion et d'émancipation financière pour entrepreneurs africains.",
+      en: "Kora Books (3) — High-stakes sales mastery and business breakthrough strategies."
+    },
+    year: 2025,
+    featured: true,
+    published: true,
+    order: 11,
+    tags: ["Vente", "Business", "Finances"]
+  },
+  {
+    id: 'kora-creative-12',
+    title: {
+      fr: "Jésus, Transforme-moi",
+      en: "Jesus, Transform Me"
+    },
+    author: "Francis II Eboutou",
+    category: "religion",
+    country: "Afrique",
+    image: "/books/kora-books-5.jpg",
+    description: {
+      fr: "Kora Books (5) — Ouvrage puissant de prière, de renouveau spirituel et de transformation intérieure.",
+      en: "Kora Books (5) — Inspiring spiritual transformation and faith empowerment book."
+    },
+    year: 2025,
+    featured: true,
+    published: true,
+    order: 12,
+    tags: ["Foi", "Spiritualité", "Renouveau"]
+  },
+  {
+    id: 'kora-creative-13',
+    title: {
+      fr: "Une Époque Formidable",
+      en: "A Formidable Era"
+    },
+    author: "Coulibaly Katchimbio",
+    category: "novel",
+    country: "Afrique",
+    image: "/books/kora-books-6.jpg",
+    description: {
+      fr: "Kora Books (6) — Regard lucide et roman percutant sur les mutations culturelles, sociétales et générationnelles.",
+      en: "Kora Books (6) — Captivating literary exploration of generational and cultural transformation."
+    },
+    year: 2024,
+    featured: true,
+    published: true,
+    order: 13,
+    tags: ["Roman", "Société", "Culture"]
+  },
+  {
+    id: 'kora-creative-14',
+    title: {
+      fr: "Le Grand Ménage",
+      en: "The Great Clean-up"
+    },
+    author: "Aboua Ahiwa",
+    category: "personal_dev",
+    country: "Afrique",
+    image: "/books/kora-books-8.jpg",
+    description: {
+      fr: "Kora Books (8) — Méthode d'assainissement mental, émotionnel et relationnel pour repartir sur des bases saines.",
+      en: "Kora Books (8) — Essential personal growth and mental decluttering guide."
+    },
+    year: 2025,
+    featured: true,
+    published: true,
+    order: 14,
+    tags: ["Mindset", "Développement Personnel", "Clarté"]
+  },
+  {
+    id: 'kora-creative-15',
+    title: {
+      fr: "Tu me respectes, je te respecte",
+      en: "You Respect Me, I Respect You"
+    },
+    author: "Merveils Kadjo",
+    category: "personal_dev",
+    country: "Afrique & Diaspora",
+    image: "/books/kora-books-9.jpg",
+    description: {
+      fr: "Kora Books (9) — Le socle inviolable du respect réciproque dans le milieu professionnel, familial et intime.",
+      en: "Kora Books (9) — Mutual respect principles for balanced and dignified relationships."
+    },
+    year: 2024,
+    featured: true,
+    published: true,
+    order: 15,
+    tags: ["Respect", "Relations", "Valeurs"]
+  },
+  {
+    id: 'kora-creative-16',
+    title: {
+      fr: "Entre l'Autel et la Chair",
+      en: "Between the Altar and the Flesh"
+    },
+    author: "Auteur Kôra",
+    category: "religion",
+    country: "Afrique",
+    image: "/books/kora-books-10.jpg",
+    description: {
+      fr: "Kora Books (10) — La confrontation intime entre vocations sacrées et faiblesses humaines avec une plume sans fard.",
+      en: "Kora Books (10) — Deep spiritual reflection on devotion, inner struggles, and human vulnerability."
+    },
+    year: 2025,
+    featured: true,
+    published: true,
+    order: 16,
+    tags: ["Spiritualité", "Vérité", "Intériorité"]
+  },
+  {
+    id: 'kora-creative-17',
+    title: {
+      fr: "Diplomatie Militaire",
+      en: "Military Diplomacy"
+    },
+    author: "Auteur Kôra",
+    category: "other",
+    country: "Afrique & International",
+    image: "/books/kora-books-11.jpg",
+    description: {
+      fr: "Kora Books (11) — Analyse stratégique approfondie sur le rôle des officiers dans la négociation et la stabilité régionale.",
+      en: "Kora Books (11) — Strategic analysis on military roles in foreign diplomacy and defense policy."
+    },
+    year: 2024,
+    featured: true,
+    published: true,
+    order: 17,
+    tags: ["Géopolitique", "Stratégie", "Défense"]
+  },
+  {
+    id: 'kora-creative-18',
+    title: {
+      fr: "Tu me respectes, je te respecte",
+      en: "You Respect Me, I Respect You (Special Edition)"
+    },
+    author: "Merveils Kadjo",
+    category: "personal_dev",
+    country: "Afrique & Diaspora",
+    image: "/books/kora-books-12.jpg",
+    description: {
+      fr: "Kora Books (12) — Édition spéciale approfondie axée sur la dignité du couple et les pactes relationnels durables.",
+      en: "Kora Books (12) — Special edition exploring couple dynamics, mutual honor, and long-term harmony."
+    },
+    year: 2025,
+    featured: true,
+    published: true,
+    order: 18,
+    tags: ["Couple", "Dignité", "Harmonie"]
+  },
+  {
+    id: 'kora-creative-19',
+    title: {
+      fr: "Éduquer sans Crier, C'est Possible",
+      en: "Parenting Without Yelling is Possible"
+    },
+    author: "Chanceline Kenkeu Epse Feize",
+    category: "education",
+    country: "Afrique & Diaspora",
+    image: "/books/kora-books-13.jpg",
+    description: {
+      fr: "Kora Books (13) — Outils concrets et psychologie de l'enfant pour poser des limites saines sans hausser la voix.",
+      en: "Kora Books (13) — Positive parenting techniques to nurture cooperative, confident children."
+    },
+    year: 2024,
+    featured: true,
+    published: true,
+    order: 19,
+    tags: ["Parentalité", "Éducation", "Famille"]
+  },
+  {
+    id: 'kora-creative-20',
+    title: {
+      fr: "L'Anniversaire de la Parentalité",
+      en: "The Birthday of Parenting"
+    },
+    author: "Auteur Kôra",
+    category: "education",
+    country: "Afrique",
+    image: "/books/kora-books-14.jpg",
+    description: {
+      fr: "Kora Books (14) — Un hommage vibrant et un guide chaleureux célébrant l'engagement, l'amour et la sagesse parentale.",
+      en: "Kora Books (14) — A celebratory journey honoring parental wisdom, dedication, and legacy."
+    },
+    year: 2025,
+    featured: true,
+    published: true,
+    order: 20,
+    tags: ["Parentalité", "Transmission", "Amour"]
   }
 ];
