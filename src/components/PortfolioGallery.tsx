@@ -9,9 +9,8 @@ import {
   Pause, 
   Play, 
   ChevronLeft, 
-  ChevronRight,
-  BookOpen,
-  ArrowRightLeft
+  ChevronRight, 
+  BookOpen
 } from 'lucide-react';
 
 interface PortfolioGalleryProps {
@@ -20,9 +19,9 @@ interface PortfolioGalleryProps {
 }
 
 /**
- * Curated Two-Row Showcase for "Nos Créatives"
- * - Ligne 1: 10 premiers ouvrages - défilement de Droite à Gauche (animate-marquee-rtl)
- * - Ligne 2: 10 ouvrages personnalisés (Kora Books) - défilement en Sens Inverse de Gauche à Droite (animate-marquee-ltr)
+ * Curated 20-Book Showcase for "Nos Créatives"
+ * - Série Signature 01: Réunit désormais les 20 couvertures d'auteurs à la suite
+ * - Défilement continu Est → Ouest (Right to Left)
  * - Format carré 1:1, cartes interactives avec aperçu et modal détaillé
  */
 export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({ 
@@ -32,30 +31,17 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
   const { t, language } = useLanguage();
   const { publishedItems } = usePortfolio();
   
-  // Row 1: First 10 curated books
-  const row1Books = publishedItems.slice(0, 10);
-  
-  // Row 2: Second set of 10 books (Kora Books: Vendre ou Mourir Pauvre, Jesus Transforme-moi, etc.)
-  // If publishedItems has more than 10, take 10 to 20, otherwise fallback gracefully
-  const row2Books = publishedItems.length > 10 
-    ? publishedItems.slice(10, 20) 
-    : publishedItems.slice(0, 10);
+  // All 20 curated books unified in Série Signature 01 (10 premiers + 10 suivants de Kora Books)
+  const signatureBooks = publishedItems.slice(0, 20);
 
-  const scrollContainerRef1 = useRef<HTMLDivElement>(null);
-  const scrollContainerRef2 = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
 
   const scrollManual = (direction: 'left' | 'right') => {
-    const scrollAmount = 360;
-    if (scrollContainerRef1.current) {
-      scrollContainerRef1.current.scrollBy({
+    const scrollAmount = 380;
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
         left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth'
-      });
-    }
-    if (scrollContainerRef2.current) {
-      scrollContainerRef2.current.scrollBy({
-        left: direction === 'left' ? scrollAmount : -scrollAmount,
         behavior: 'smooth'
       });
     }
@@ -84,7 +70,7 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
             </h2>
 
             <p className="text-sm sm:text-base text-zinc-300">
-              Découvrez nos créatives et couvertures professionnelles en format carré. Deux rangées à double sens de défilement immersif : survolez un livre pour mettre en pause et cliquez pour afficher sa fiche technique.
+              Découvrez nos 20 créatives et couvertures professionnelles réunies dans la Série Signature. Défilement continu Est &rarr; Ouest : survolez un livre pour mettre en pause et cliquez pour afficher sa fiche technique complète.
             </p>
           </div>
 
@@ -147,20 +133,22 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
       </div>
 
       {/* ======================================================== */}
-      {/* LIGNE 1 : DÉFILEMENT DE DROITE À GAUCHE (Série Signature) */}
+      {/* SÉRIE SIGNATURE 01 : 20 COUVERTURES EN DÉFILEMENT EST → OUEST */}
       {/* ======================================================== */}
       <div className="mb-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-2 flex items-center justify-between text-xs text-zinc-400">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-3 flex items-center justify-between text-xs text-zinc-400">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-            <span className="font-semibold text-zinc-200">Série Signature 01</span>
-            <span className="text-zinc-500">· Défilement continu Est &rarr; Ouest</span>
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
+            <span className="font-extrabold text-zinc-100 text-sm">Série Signature 01</span>
+            <span className="text-zinc-400">· 20 créations d'auteurs en défilement continu Est &rarr; Ouest</span>
           </div>
-          <span className="text-[11px] text-zinc-500 hidden sm:inline">10 créations exclusives</span>
+          <span className="text-xs font-semibold text-amber-300/90 bg-amber-950/40 border border-amber-400/20 px-2.5 py-1 rounded-full hidden sm:inline">
+            20 couvertures d'exception
+          </span>
         </div>
 
         <div 
-          ref={scrollContainerRef1}
+          ref={scrollContainerRef}
           className="relative w-full overflow-x-auto no-scrollbar py-3"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
@@ -168,19 +156,20 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
           <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-[#08090b] to-transparent pointer-events-none z-20"></div>
           <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-[#08090b] to-transparent pointer-events-none z-20"></div>
 
-          {/* Continuous Scrolling Track (Right to Left) */}
+          {/* Continuous Scrolling Track (Right to Left - 20 items smoothly animated) */}
           <div 
             className={`flex gap-6 items-center px-4 w-max ${
               isPaused ? '' : 'animate-marquee-rtl'
             }`}
             style={{
+              animationDuration: '75s',
               animationPlayState: isPaused ? 'paused' : 'running'
             }}
           >
-            {/* Set 1 */}
-            {row1Books.map((item, idx) => (
+            {/* Set 1: All 20 books */}
+            {signatureBooks.map((item, idx) => (
               <SquareBookCard 
-                key={`row1-set1-${item.id || idx}`}
+                key={`sig-set1-${item.id || idx}`}
                 item={item}
                 index={idx + 1}
                 language={language}
@@ -188,69 +177,12 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
               />
             ))}
 
-            {/* Set 2 (Duplicate for seamless loop) */}
-            {row1Books.map((item, idx) => (
+            {/* Set 2 (Duplicate for seamless continuous loop) */}
+            {signatureBooks.map((item, idx) => (
               <SquareBookCard 
-                key={`row1-set2-${item.id || idx}`}
+                key={`sig-set2-${item.id || idx}`}
                 item={item}
                 index={idx + 1}
-                language={language}
-                onSelect={onSelectProject}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* ======================================================== */}
-      {/* LIGNE 2 : DÉFILEMENT DE GAUCHE À DROITE (Série Édition)   */}
-      {/* SENS INVERSE DEMANDÉ PAR L'UTILISATEUR                   */}
-      {/* ======================================================== */}
-      <div className="mt-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-2 flex items-center justify-between text-xs text-zinc-400">
-          <div className="flex items-center gap-2">
-            <ArrowRightLeft className="w-3.5 h-3.5 text-amber-400" />
-            <span className="font-semibold text-amber-300">Série Édition 02 · Kora Books</span>
-            <span className="text-zinc-500">· Défilement inverse Ouest &rarr; Est</span>
-          </div>
-          <span className="text-[11px] text-zinc-500 hidden sm:inline">10 créations d'auteurs</span>
-        </div>
-
-        <div 
-          ref={scrollContainerRef2}
-          className="relative w-full overflow-x-auto no-scrollbar py-3"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-        >
-          {/* Gradient edge masks */}
-          <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-[#08090b] to-transparent pointer-events-none z-20"></div>
-          <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-[#08090b] to-transparent pointer-events-none z-20"></div>
-
-          {/* Continuous Scrolling Track in REVERSE (Left to Right) */}
-          <div 
-            className={`flex gap-6 items-center px-4 w-max ${
-              isPaused ? '' : 'animate-marquee-ltr'
-            }`}
-            style={{
-              animationPlayState: isPaused ? 'paused' : 'running'
-            }}
-          >
-            {/* Set 1 */}
-            {row2Books.map((item, idx) => (
-              <SquareBookCard 
-                key={`row2-set1-${item.id || idx}`}
-                item={item}
-                index={idx + 11}
-                language={language}
-                onSelect={onSelectProject}
-              />
-            ))}
-
-            {/* Set 2 (Duplicate for seamless loop) */}
-            {row2Books.map((item, idx) => (
-              <SquareBookCard 
-                key={`row2-set2-${item.id || idx}`}
-                item={item}
-                index={idx + 11}
                 language={language}
                 onSelect={onSelectProject}
               />
@@ -260,11 +192,11 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
       </div>
 
       {/* Bottom Counter and reassurance */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 flex flex-wrap items-center justify-between text-xs text-zinc-400 gap-3 border-t border-white/5 pt-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 flex flex-wrap items-center justify-between text-xs text-zinc-400 gap-3 border-t border-white/5 pt-6">
         <div className="flex items-center gap-2">
           <BookOpen className="w-3.5 h-3.5 text-amber-300" />
           <span>
-            Présentation des <strong>{publishedItems.length} ouvrages</strong> sélectionnés · 2 lignes à défilement inversé
+            Présentation des <strong>20 ouvrages</strong> de la Série Signature en défilement continu Est &rarr; Ouest
           </span>
         </div>
 
@@ -317,7 +249,7 @@ const SquareBookCard: React.FC<SquareBookCardProps> = ({ item, index, language, 
       onClick={() => onSelect(item)}
       className="group cursor-pointer select-none shrink-0 w-72 sm:w-80 flex flex-col bg-zinc-900/80 border border-white/10 hover:border-amber-400/60 rounded-3xl p-4 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-amber-950/40 hover:-translate-y-1.5"
     >
-      {/* Format carré 1:1 pour l'image de couverture (non portrait) */}
+      {/* Format carré 1:1 pour l'image de couverture */}
       <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-black mb-3.5 border border-white/10 group-hover:border-amber-400/50 shadow-2xl transition-all duration-300">
         <img
           src={imgSrc}

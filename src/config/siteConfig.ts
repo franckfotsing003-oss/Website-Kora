@@ -20,11 +20,11 @@ export const siteConfig: SiteConfig = {
   authorsCount: 230,
   countriesCount: 14,
   socials: {
-    facebook: "https://facebook.com/korastudio",
-    instagram: "https://instagram.com/korastudio",
+    facebook: "https://www.facebook.com/korastudioo",
+    instagram: "https://www.instagram.com/koorastudioo/",
     tiktok: "https://tiktok.com/@korastudio",
     linkedin: "https://linkedin.com/company/korastudio",
-    twitter: "https://x.com/korastudio"
+    twitter: "https://x.com/korastudioo"
   }
 };
 

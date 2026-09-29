@@ -20,7 +20,7 @@ export const ContactFormSection: React.FC = () => {
   const [email, setEmail] = useState('');
   const [bookTitle, setBookTitle] = useState('');
   const [genre, setGenre] = useState('Business & Économie');
-  const [serviceOrPackage, setServiceOrPackage] = useState('Kôra Standard (275 000 FCFA) ⭐ Recommandé');
+  const [serviceOrPackage, setServiceOrPackage] = useState('Accompagnement complet (Relecture + Mise en page + Couverture)');
   const [message, setMessage] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -199,22 +199,22 @@ export const ContactFormSection: React.FC = () => {
                     onChange={(e) => setServiceOrPackage(e.target.value)}
                     className="w-full bg-zinc-900 border border-white/10 rounded-xl px-3.5 py-2.5 text-zinc-100 focus:outline-none focus:border-amber-500"
                   >
-                    <optgroup label="Formules Clé en Main">
-                      <option value="Kôra Standard (275 000 FCFA) ⭐ Recommandé">Kôra Standard (275 000 FCFA) ⭐ Recommandé</option>
-                      <option value="Kôra Essentiel (150 000 FCFA)">Kôra Essentiel (150 000 FCFA)</option>
-                      <option value="Kôra Premium (450 000 FCFA)">Kôra Premium (450 000 FCFA)</option>
+                    <optgroup label="Accompagnement Clé en Main">
+                      <option value="Accompagnement complet (Relecture + Mise en page + Couverture) ⭐ Recommandé">Accompagnement complet (Relecture + Mise en page + Couverture) ⭐ Recommandé</option>
                     </optgroup>
-                    <optgroup label="Services Individuels sur Devis">
-                      <option value="Service individuel : Relecture & Correction">Service individuel : Relecture & Correction</option>
-                      <option value="Service individuel : Création de couverture">Service individuel : Création de couverture</option>
-                      <option value="Service individuel : Mise en page intérieure">Service individuel : Mise en page intérieure</option>
-                      <option value="Service individuel : Publication Amazon KDP">Service individuel : Publication Amazon KDP</option>
-                      <option value="Service individuel : Traduction Français ↔ Anglais">Service individuel : Traduction Français ↔ Anglais</option>
-                      <option value="Service individuel : Démarches ISBN">Service individuel : Démarches ISBN</option>
-                      <option value="Service individuel : Transcription Livre → Audio">Service individuel : Transcription Livre → Audio</option>
-                      <option value="Service individuel : Promotion Meta Ads">Service individuel : Promotion Meta Ads</option>
-                      <option value="Service individuel : Kit de lancement">Service individuel : Kit de lancement</option>
-                      <option value="Accompagnement complet sur mesure">Accompagnement complet sur mesure</option>
+                    <optgroup label="Les 3 Services Phares">
+                      <option value="Service 01 : Relecture, correction & reformulation">Service 01 : Relecture, correction & reformulation</option>
+                      <option value="Service 02 : Mise en page professionnelle">Service 02 : Mise en page professionnelle</option>
+                      <option value="Service 03 : Conception de couverture (Standard, Premium ou Prestige)">Service 03 : Conception de couverture</option>
+                    </optgroup>
+                    <optgroup label="Services Éditoriaux Connexes">
+                      <option value="Service connexe : Traduction">Service connexe : Traduction</option>
+                      <option value="Service connexe : Accompagnement démarches ISBN">Service connexe : Accompagnement démarches ISBN</option>
+                      <option value="Service connexe : Promotion du livre (Meta Ads, Amazon KDP)">Service connexe : Promotion du livre (Meta Ads, Amazon KDP)</option>
+                      <option value="Service connexe : Impression de l'ouvrage (Coordination)">Service connexe : Impression de l'ouvrage (Coordination)</option>
+                    </optgroup>
+                    <optgroup label="Autre besoin">
+                      <option value="Autre demande / Échange préalable">Autre demande / Échange préalable</option>
                     </optgroup>
                   </select>
                 </div>

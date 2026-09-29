@@ -31,15 +31,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAdmin }) => {
 
   // Streamlined nav links matching the essential sections
   const navLinks = [
-    { label: t.nav.home, href: "#hero" },
-    { label: "Showcase 3D", href: "#premieres-couvertures" },
+    { label: t.nav.home || "Accueil", href: "#hero" },
     { label: t.nav.portfolio || "Nos Créatives", href: "#portfolio" },
-    { label: t.nav.pricing, href: "#tarifs" },
-    { label: t.nav.services, href: "#services" },
-    { label: t.nav.about, href: "#a-propos" },
-    { label: t.nav.testimonials, href: "#temoignages" },
-    { label: t.nav.faq, href: "#faq" },
-    { label: t.nav.contact, href: "#contact" }
+    { label: "Nos services", href: "#services" },
+    { label: "Accompagnement", href: "#accompagnement-complet" },
+    { label: t.nav.about || "À Propos", href: "#a-propos" },
+    { label: "Réalisations", href: "#realisations" },
+    { label: t.nav.faq || "FAQ", href: "#faq" },
+    { label: t.nav.contact || "Contact", href: "#contact" }
   ];
 
   return (

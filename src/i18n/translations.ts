@@ -35,8 +35,8 @@ export const translations = {
       titleHighlight: "un ouvrage professionnel d'exception.",
       subtitle: "Kôra est le studio éditorial digital qui accompagne les auteurs indépendants d'Afrique francophone de la relecture à la publication. À votre rythme et selon vos moyens.",
       ctaPrimary: "Discuter de mon projet sur WhatsApp",
-      ctaSecondary: "Découvrir nos 3 formules",
-      ctaServices: "Voir tous nos services",
+      ctaSecondary: "Découvrir nos services",
+      ctaServices: "Voir nos services phares",
       stats: {
         authors: "230+ auteurs accompagnés",
         online: "100% en ligne sans frontières",
@@ -321,8 +321,8 @@ export const translations = {
       titleHighlight: "an exceptional professional book.",
       subtitle: "Kôra is the digital editorial studio supporting French-speaking independent African authors from proofreading to publication. At your pace, according to your means.",
       ctaPrimary: "Discuss my project on WhatsApp",
-      ctaSecondary: "Discover our 3 packages",
-      ctaServices: "Explore all services",
+      ctaSecondary: "Discover our services",
+      ctaServices: "Explore flagship services",
       stats: {
         authors: "230+ authors guided",
         online: "100% online without borders",

@@ -345,14 +345,14 @@ export const FloatingKoralieAssistant: React.FC = () => {
             </a>
 
             <a
-              href="#tarifs"
+              href="#services"
               onClick={() => {
                 setIsOpen(false);
                 setHasPrompted(false);
               }}
               className="w-full inline-flex items-center justify-between bg-zinc-900 hover:bg-zinc-800 text-zinc-200 text-xs font-semibold px-3 py-2 rounded-xl border border-white/10 hover:border-amber-400/40 transition-colors"
             >
-              <span>Découvrir les forfaits dès 150 000 FCFA</span>
+              <span>Découvrir nos services & tarifs</span>
               <ChevronRight className="w-3.5 h-3.5 text-amber-400" />
             </a>
           </div>

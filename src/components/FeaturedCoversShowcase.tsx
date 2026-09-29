@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   Sparkles, 
   ChevronLeft, 
@@ -6,8 +6,10 @@ import {
   Eye,
   Award,
   X,
-  MessageCircle,
-  CheckCircle2
+  MessageCircle, 
+  CheckCircle2,
+  Pause,
+  Play
 } from 'lucide-react';
 import { createWhatsAppLink } from '../config/siteConfig';
 
@@ -23,6 +25,14 @@ export interface FeaturedCover {
   description: string;
 }
 
+/**
+ * EXACT 5 FLAGSHIP COVERS (Sans "Le Grand Ménage")
+ * 1. LE GUIDE ULTIME DE LA MAÎTRISE TYPOGRAPHIQUE (Franck Fotsing)
+ * 2. Diplomatie Militaire (Mukuna Mbikayi Alphonse)
+ * 3. Tu me respectes, je te respecte (Merveils Kadjo)
+ * 4. Un management toxique au service des ONG humanitaires (Tamboura Saïdou)
+ * 5. Éduquer Sans Crier, C’est Possible (Chanceline Kenkeu Epse Feize)
+ */
 export const FEATURED_COVERS: FeaturedCover[] = [
   {
     id: 1,
@@ -59,17 +69,6 @@ export const FEATURED_COVERS: FeaturedCover[] = [
   },
   {
     id: 4,
-    fileName: 'PremiereCouvertures (4).jpg',
-    cleanFileName: 'premiere-couverture-4.jpg',
-    title: 'LE GRAND MÉNAGE',
-    subtitle: 'Agir pour un environnement propre et une conscience collective éveillée',
-    author: 'Aboua Ahiwa',
-    genre: 'Environnement & Engagement Citoyen',
-    badge: 'Impact Social',
-    description: 'Design dramatique et symbolique avec contrastes de matières et traitement chromatique haute intensité.'
-  },
-  {
-    id: 5,
     fileName: 'PremiereCouvertures (5).jpg',
     cleanFileName: 'premiere-couverture-5.jpg',
     title: 'Un management toxique au service des ONG humanitaires',
@@ -80,7 +79,7 @@ export const FEATURED_COVERS: FeaturedCover[] = [
     description: 'Esthétique percutante mêlant symbolisme organisationnel et tension dramatique pour un sujet engagé.'
   },
   {
-    id: 6,
+    id: 5,
     fileName: 'PremiereCouvertures (6).jpg',
     cleanFileName: 'premiere-couverture-6.jpg',
     title: 'Éduquer Sans Crier, C’est Possible',
@@ -92,17 +91,15 @@ export const FEATURED_COVERS: FeaturedCover[] = [
   }
 ];
 
-interface FeaturedCoversShowcaseProps {
-  onSelectCover?: (cover: FeaturedCover) => void;
-}
-
-export const FeaturedCoversShowcase: React.FC<FeaturedCoversShowcaseProps> = () => {
-  // Center book index (0 to 5)
-  // By default, index 0 is "LE GUIDE ULTIME DE LA MAÎTRISE TYPOGRAPHIQUE"
+export const FeaturedCoversShowcase: React.FC = () => {
+  // Center book index (0 to 4)
   const [centerIndex, setCenterIndex] = useState(0);
   const [modalCover, setModalCover] = useState<FeaturedCover | null>(null);
+  const [isAutoPlay, setIsAutoPlay] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
+  const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
 
-  const total = FEATURED_COVERS.length;
+  const total = FEATURED_COVERS.length; // Exactly 5
 
   const handlePrev = () => {
     setCenterIndex((prev) => (prev - 1 + total) % total);
@@ -112,12 +109,19 @@ export const FeaturedCoversShowcase: React.FC<FeaturedCoversShowcaseProps> = () 
     setCenterIndex((prev) => (prev + 1) % total);
   };
 
-  // We want to calculate 5 positions:
-  // -2: outer left
-  // -1: inner left
-  //  0: center
-  // +1: inner right
-  // +2: outer right
+  // Modern gentle auto-cycle every 4.5 seconds (pauses on hover or manual toggle)
+  useEffect(() => {
+    if (isAutoPlay && !isHovered && !modalCover) {
+      autoPlayRef.current = setInterval(() => {
+        setCenterIndex((prev) => (prev + 1) % total);
+      }, 4500);
+    }
+    return () => {
+      if (autoPlayRef.current) clearInterval(autoPlayRef.current);
+    };
+  }, [isAutoPlay, isHovered, modalCover, total]);
+
+  // Compute 5 slots: -2 (Far Left), -1 (Left), 0 (Center), +1 (Right), +2 (Far Right)
   const getSlot = (offset: number) => {
     const idx = (centerIndex + offset + total) % total;
     return {
@@ -135,28 +139,30 @@ export const FeaturedCoversShowcase: React.FC<FeaturedCoversShowcaseProps> = () 
     getSlot(2)
   ];
 
+  const currentCover = FEATURED_COVERS[centerIndex];
+
   return (
     <section 
       id="premieres-couvertures" 
-      className="relative pt-2 pb-8 sm:pb-12 overflow-hidden bg-gradient-to-b from-[#090a0d] via-[#0b0c10] to-[#08090b]"
+      className="relative pt-6 pb-12 sm:pb-16 overflow-hidden bg-gradient-to-b from-[#090a0d] via-[#0b0c10] to-[#08090b]"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       {/* Background Gold Ambient Radial Glows */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[450px] bg-[#d4a038]/12 blur-[170px] rounded-full pointer-events-none -z-10"></div>
-      <div className="absolute top-0 right-1/4 w-80 h-80 bg-amber-500/10 blur-[130px] rounded-full pointer-events-none -z-10"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[950px] h-[500px] bg-[#d4a038]/12 blur-[180px] rounded-full pointer-events-none -z-10"></div>
+      <div className="absolute top-6 right-1/4 w-80 h-80 bg-amber-500/10 blur-[140px] rounded-full pointer-events-none -z-10"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* 3D Curved / Fanned Perspective Showcase */}
-        <div className="relative w-full max-w-5xl mx-auto pt-2 pb-6 sm:pb-10 select-none">
-          
-          {/* Subtle Stage Lighting Base Floor Shadow */}
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-4/5 h-16 bg-black/80 blur-2xl rounded-full pointer-events-none -z-10"></div>
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-2/3 h-8 bg-amber-500/15 blur-xl rounded-full pointer-events-none -z-10"></div>
+        {/* Subtle Stage Lighting Base Floor Shadow */}
+        <div className="relative w-full max-w-5xl mx-auto pt-2 pb-4 select-none">
+          <div className="absolute bottom-16 left-1/2 -translate-x-1/2 w-4/5 h-20 bg-black/90 blur-3xl rounded-full pointer-events-none -z-10"></div>
+          <div className="absolute bottom-14 left-1/2 -translate-x-1/2 w-2/3 h-10 bg-amber-500/20 blur-2xl rounded-full pointer-events-none -z-10"></div>
 
-          {/* Perspective Container */}
+          {/* Perspective 3D Stage Container */}
           <div 
-            className="flex items-center justify-center gap-2 sm:gap-4 md:gap-6 min-h-[380px] sm:min-h-[460px] md:min-h-[500px]"
-            style={{ perspective: '1200px' }}
+            className="flex items-center justify-center gap-2 sm:gap-4 md:gap-6 min-h-[380px] sm:min-h-[460px] md:min-h-[520px] py-4"
+            style={{ perspective: '1300px' }}
           >
             {visibleSlots.map(({ cover, offset, index }) => {
               const isCenter = offset === 0;
@@ -165,7 +171,7 @@ export const FeaturedCoversShowcase: React.FC<FeaturedCoversShowcaseProps> = () 
               const isInnerRight = offset === 1;
               const isOuterRight = offset === 2;
 
-              // 3D transform computation matching high-end book showcase
+              // Modern 3D transform computation with smooth curves
               let rotateY = 0;
               let scale = 1.0;
               let translateZ = 0;
@@ -174,34 +180,34 @@ export const FeaturedCoversShowcase: React.FC<FeaturedCoversShowcaseProps> = () 
 
               if (isCenter) {
                 rotateY = 0;
-                scale = 1.08;
-                translateZ = 40;
-                zIndex = 30;
+                scale = 1.12;
+                translateZ = 60;
+                zIndex = 35;
                 opacity = 1;
               } else if (isInnerLeft) {
-                rotateY = 14;
-                scale = 0.95;
+                rotateY = 18;
+                scale = 0.94;
                 translateZ = 0;
-                zIndex = 22;
+                zIndex = 25;
                 opacity = 0.92;
               } else if (isOuterLeft) {
-                rotateY = 24;
-                scale = 0.85;
-                translateZ = -40;
+                rotateY = 32;
+                scale = 0.82;
+                translateZ = -60;
                 zIndex = 15;
-                opacity = 0.75;
+                opacity = 0.72;
               } else if (isInnerRight) {
-                rotateY = -14;
-                scale = 0.95;
+                rotateY = -18;
+                scale = 0.94;
                 translateZ = 0;
-                zIndex = 22;
+                zIndex = 25;
                 opacity = 0.92;
               } else if (isOuterRight) {
-                rotateY = -24;
-                scale = 0.85;
-                translateZ = -40;
+                rotateY = -32;
+                scale = 0.82;
+                translateZ = -60;
                 zIndex = 15;
-                opacity = 0.75;
+                opacity = 0.72;
               }
 
               return (
@@ -217,36 +223,42 @@ export const FeaturedCoversShowcase: React.FC<FeaturedCoversShowcaseProps> = () 
                   style={{
                     transform: `rotateY(${rotateY}deg) scale(${scale}) translateZ(${translateZ}px)`,
                     zIndex,
-                    opacity
+                    opacity,
+                    transition: 'transform 600ms cubic-bezier(0.16, 1, 0.3, 1), opacity 600ms ease, z-index 600ms ease'
                   }}
                   className={`
-                    relative cursor-pointer transition-all duration-500 ease-out group
+                    relative cursor-pointer group
                     w-[130px] sm:w-[190px] md:w-[220px] lg:w-[240px]
                     shrink-0
-                    ${isCenter ? 'drop-shadow-[0_20px_40px_rgba(212,160,56,0.35)]' : 'drop-shadow-[0_15px_30px_rgba(0,0,0,0.8)]'}
+                    ${isCenter ? 'drop-shadow-[0_25px_45px_rgba(212,160,56,0.4)]' : 'drop-shadow-[0_15px_30px_rgba(0,0,0,0.85)]'}
                   `}
                 >
                   {/* VIP Badge on Center Book */}
                   {isCenter && cover.badge && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-40 bg-gradient-to-r from-amber-400 to-[#c8922e] text-black text-[10px] sm:text-xs font-black px-3 py-0.5 rounded-full shadow-lg shadow-amber-950/60 whitespace-nowrap flex items-center gap-1">
+                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-40 bg-gradient-to-r from-amber-400 via-amber-300 to-[#c8922e] text-black text-[10px] sm:text-xs font-black px-3.5 py-0.5 rounded-full shadow-lg shadow-amber-950/60 whitespace-nowrap flex items-center gap-1.5 animate-in fade-in zoom-in duration-300">
                       <Award className="w-3 h-3 text-black fill-current" />
                       <span>{cover.badge}</span>
                     </div>
                   )}
 
-                  {/* 3D Realistic Book Shell (Aspect ratio 2:3, portrait standard 1800x2700) */}
-                  <div className="relative aspect-[2/3] rounded-lg sm:rounded-xl overflow-hidden bg-zinc-900 border border-white/10 group-hover:border-amber-400/80 transition-colors shadow-2xl">
+                  {/* 3D Realistic Book Shell (Aspect ratio 2:3, portrait standard) */}
+                  <div className={`
+                    relative aspect-[2/3] rounded-xl sm:rounded-2xl overflow-hidden bg-zinc-900 border transition-all duration-300 shadow-2xl
+                    ${isCenter 
+                      ? 'border-amber-400/90 ring-2 ring-amber-400/30' 
+                      : 'border-white/10 group-hover:border-amber-400/50'}
+                  `}>
                     
                     {/* Spine Shadow on Left Edge */}
-                    <div className="absolute inset-y-0 left-0 w-[8%] bg-gradient-to-r from-black/70 via-black/30 to-transparent z-20 pointer-events-none"></div>
+                    <div className="absolute inset-y-0 left-0 w-[9%] bg-gradient-to-r from-black/80 via-black/40 to-transparent z-20 pointer-events-none"></div>
                     
                     {/* Vertical Book Hinge / Crease Gloss Line */}
-                    <div className="absolute inset-y-0 left-[7%] w-[2px] bg-white/20 z-20 pointer-events-none"></div>
+                    <div className="absolute inset-y-0 left-[7%] w-[2px] bg-white/25 z-20 pointer-events-none"></div>
 
                     {/* Subtle Overhead Light Reflection */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-60 z-20 pointer-events-none group-hover:opacity-90 transition-opacity"></div>
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/15 opacity-60 z-20 pointer-events-none group-hover:opacity-90 transition-opacity"></div>
 
-                    {/* Book Cover Image with multiple fallbacks */}
+                    {/* Book Cover Image with fallbacks */}
                     <img
                       src={`/covers/${cover.cleanFileName}`}
                       onError={(e) => {
@@ -268,7 +280,7 @@ export const FeaturedCoversShowcase: React.FC<FeaturedCoversShowcaseProps> = () 
                     />
 
                     {/* Hover Overlay with Quick Preview Action */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30 flex flex-col justify-end p-3 sm:p-4 text-left">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30 flex flex-col justify-end p-3 sm:p-4 text-left">
                       <div className="inline-flex items-center gap-1.5 text-amber-300 text-[11px] sm:text-xs font-bold mb-1">
                         <Eye className="w-3.5 h-3.5" />
                         <span>Agrandir</span>
@@ -276,37 +288,112 @@ export const FeaturedCoversShowcase: React.FC<FeaturedCoversShowcaseProps> = () 
                       <h4 className="text-white text-xs sm:text-sm font-bold line-clamp-2 leading-tight">
                         {cover.title}
                       </h4>
-                      <p className="text-amber-200/90 text-[10px] sm:text-xs truncate">
+                      <p className="text-amber-200/90 text-[10px] sm:text-xs truncate font-medium">
                         {cover.author}
                       </p>
                     </div>
                   </div>
 
                   {/* Floor Reflection and Contact Shadow */}
-                  <div className="w-full h-4 bg-gradient-to-b from-black/80 to-transparent blur-sm mt-1 rounded-full scale-95 mx-auto"></div>
+                  <div className={`w-full h-4 bg-gradient-to-b from-black/90 to-transparent blur-sm mt-1 rounded-full scale-95 mx-auto ${isCenter ? 'bg-amber-500/20' : ''}`}></div>
                 </div>
               );
             })}
           </div>
 
-          {/* Left / Right Navigation Arrows */}
+          {/* Left / Right Modern Glassmorphic Arrows */}
           <button
             type="button"
             onClick={handlePrev}
             aria-label="Couverture précédente"
-            className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-zinc-900/90 hover:bg-black text-amber-300 border border-amber-400/40 hover:border-amber-400 flex items-center justify-center shadow-xl shadow-black/80 hover:scale-110 active:scale-95 transition-all"
+            className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-black/80 hover:bg-black text-amber-300 border border-amber-400/40 hover:border-amber-400 flex items-center justify-center shadow-2xl backdrop-blur-md hover:scale-110 active:scale-95 transition-all"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-6 h-6 stroke-[2.5]" />
           </button>
 
           <button
             type="button"
             onClick={handleNext}
             aria-label="Couverture suivante"
-            className="absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-zinc-900/90 hover:bg-black text-amber-300 border border-amber-400/40 hover:border-amber-400 flex items-center justify-center shadow-xl shadow-black/80 hover:scale-110 active:scale-95 transition-all"
+            className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-black/80 hover:bg-black text-amber-300 border border-amber-400/40 hover:border-amber-400 flex items-center justify-center shadow-2xl backdrop-blur-md hover:scale-110 active:scale-95 transition-all"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-6 h-6 stroke-[2.5]" />
           </button>
+        </div>
+
+        {/* Modern Interactive Indicators Bar & Active Book Focus Card */}
+        <div className="max-w-2xl mx-auto flex flex-col items-center gap-4 mt-2">
+          
+          {/* 5 Dots / Pill Navigation Indicators */}
+          <div className="flex items-center gap-2.5">
+            {FEATURED_COVERS.map((cov, idx) => {
+              const isActive = idx === centerIndex;
+              return (
+                <button
+                  key={cov.id}
+                  type="button"
+                  onClick={() => setCenterIndex(idx)}
+                  className={`transition-all duration-300 rounded-full ${
+                    isActive 
+                      ? 'w-8 h-2.5 bg-gradient-to-r from-amber-400 to-amber-500 shadow-md shadow-amber-400/40' 
+                      : 'w-2.5 h-2.5 bg-white/20 hover:bg-white/40'
+                  }`}
+                  aria-label={`Aller au livre ${idx + 1} : ${cov.title}`}
+                />
+              );
+            })}
+
+            {/* Play/Pause subtle toggle */}
+            <button
+              type="button"
+              onClick={() => setIsAutoPlay(!isAutoPlay)}
+              className="ml-3 p-1 rounded-full text-zinc-500 hover:text-amber-300 transition-colors"
+              title={isAutoPlay ? "Mettre en pause l'animation" : "Lancer le défilement automatique"}
+            >
+              {isAutoPlay ? (
+                <Pause className="w-3.5 h-3.5" />
+              ) : (
+                <Play className="w-3.5 h-3.5" />
+              )}
+            </button>
+          </div>
+
+          {/* Active Book Metadata Quick View */}
+          <div className="w-full text-center px-4 py-3 rounded-2xl bg-zinc-900/60 border border-white/5 backdrop-blur-sm flex flex-col sm:flex-row items-center justify-between gap-3 shadow-lg">
+            <div className="text-left max-w-md">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-amber-300 block mb-0.5">
+                {currentCover.genre}
+              </span>
+              <h3 className="text-sm sm:text-base font-bold text-white line-clamp-1">
+                {currentCover.title}
+              </h3>
+              <p className="text-xs text-zinc-400 truncate">
+                Par <span className="text-zinc-200 font-semibold">{currentCover.author}</span>
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2 shrink-0">
+              <button
+                type="button"
+                onClick={() => setModalCover(currentCover)}
+                className="inline-flex items-center gap-1.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 hover:text-white border border-white/10 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all"
+              >
+                <Eye className="w-3.5 h-3.5 text-amber-400" />
+                <span>Consulter</span>
+              </button>
+
+              <a
+                href={createWhatsAppLink(`Bonjour Kôra Studio, je souhaite commander un projet de livre inspiré de la couverture "${currentCover.title}".`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 btn-gold text-black text-xs font-extrabold px-3.5 py-1.5 rounded-xl shadow-md transition-all hover:scale-105"
+              >
+                <MessageCircle className="w-3.5 h-3.5 fill-black" />
+                <span>Demander une proforma</span>
+              </a>
+            </div>
+          </div>
+
         </div>
 
       </div>
@@ -320,7 +407,7 @@ export const FeaturedCoversShowcase: React.FC<FeaturedCoversShowcaseProps> = () 
             <button
               type="button"
               onClick={() => setModalCover(null)}
-              className="absolute top-4 right-4 z-40 w-10 h-10 rounded-full bg-black/80 hover:bg-black text-zinc-300 hover:text-white border border-white/20 flex items-center justify-center transition-all"
+              className="absolute top-4 right-4 z-40 w-10 h-10 rounded-full bg-black/80 hover:bg-black text-zinc-300 hover:text-white border border-white/20 flex items-center justify-center transition-all cursor-pointer"
               aria-label="Fermer"
             >
               <X className="w-5 h-5" />
@@ -383,7 +470,7 @@ export const FeaturedCoversShowcase: React.FC<FeaturedCoversShowcaseProps> = () 
                   className="w-full inline-flex items-center justify-center gap-3 btn-gold text-black font-extrabold py-3.5 px-6 rounded-xl shadow-lg transition-all"
                 >
                   <MessageCircle className="w-5 h-5 fill-current" />
-                  <span>Commander cette Couverture sur WhatsApp</span>
+                  <span>Demander une proforma sur WhatsApp</span>
                 </a>
 
                 <div className="flex items-center justify-center gap-2 text-zinc-400 text-xs">

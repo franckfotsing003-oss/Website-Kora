@@ -108,7 +108,7 @@ export const Hero: React.FC = () => {
 
           <a
             id="hero-secondary-pricing-btn"
-            href="#tarifs"
+            href="#services"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#111215] hover:bg-[#18191f] text-white border border-white/20 hover:border-amber-400/50 text-sm sm:text-base md:text-lg font-bold px-8 sm:px-10 md:px-12 py-4 sm:py-4.5 rounded-2xl whitespace-nowrap transition-all duration-200 shadow-lg select-none"
           >
             <span className="whitespace-nowrap tracking-tight sm:tracking-normal">{t.hero.ctaSecondary}</span>

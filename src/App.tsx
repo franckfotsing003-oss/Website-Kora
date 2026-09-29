@@ -5,10 +5,9 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { FeaturedCoversShowcase } from './components/FeaturedCoversShowcase';
 import { PortfolioGallery } from './components/PortfolioGallery';
-import { PricingSection } from './components/PricingSection';
 import { KoraServicesSection } from './components/KoraServicesSection';
 import { AboutKoraSection } from './components/AboutKoraSection';
-import { TestimonialsSection } from './components/TestimonialsSection';
+import { ReassuranceSection } from './components/ReassuranceSection';
 import { FaqSection } from './components/FaqSection';
 import { ContactFormSection } from './components/ContactFormSection';
 import { Footer } from './components/Footer';
@@ -42,22 +41,19 @@ const MainContent: React.FC = () => {
           onOpenAdmin={() => setIsAdminOpen(true)}
         />
 
-        {/* 3. Pricing & Turnkey Packages: Essentiel 150k, Standard 275k, Premium 450k */}
-        <PricingSection />
-
-        {/* 5. Complete Editorial Services of Kôra Studio */}
+        {/* 3. Section Services / Offres: 3 Services Phares + Accompagnement Complet + Services Connexes */}
         <KoraServicesSection />
 
-        {/* 6. About Kôra Studio: 100% Online, Author-Financed, 1 Interlocutor */}
+        {/* 4. About Kôra Studio: 100% Online, Studio Éditorial Digital, 1 Interlocuteur */}
         <AboutKoraSection />
 
-        {/* 7. Real Testimonials from African Authors */}
-        <TestimonialsSection />
+        {/* 5. Réassurance & Réalisations authentiques (Lien vers Facebook et ouvrages réels) */}
+        <ReassuranceSection />
 
-        {/* 8. Essential Interactive FAQ */}
+        {/* 6. FAQ officielle sur la confiance, le modèle et les prestations */}
         <FaqSection />
 
-        {/* 9. Express Brief & WhatsApp Contact Form */}
+        {/* 7. Demande de Proforma & Formulaire de contact WhatsApp */}
         <ContactFormSection />
       </main>
 

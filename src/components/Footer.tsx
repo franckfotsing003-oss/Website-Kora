@@ -111,13 +111,18 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
                 </a>
               </li>
               <li>
-                <a href="#tarifs" className="hover:text-amber-300 transition-colors">
-                  Formules & Tarifs
+                <a href="#services" className="hover:text-amber-300 transition-colors">
+                  Nos 3 Services Phares
                 </a>
               </li>
               <li>
-                <a href="#temoignages" className="hover:text-amber-300 transition-colors">
-                  Témoignages d'Auteurs
+                <a href="#accompagnement-complet" className="hover:text-amber-300 transition-colors">
+                  Accompagnement Complet
+                </a>
+              </li>
+              <li>
+                <a href="#realisations" className="hover:text-amber-300 transition-colors">
+                  Nos Réalisations
                 </a>
               </li>
               <li>
@@ -267,10 +272,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
 
             {/* Twitter / X */}
             <a
-              href={siteConfig.socials.facebook}
+              href={siteConfig.socials.twitter}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Twitter"
+              aria-label="Twitter / X"
               className="w-9 h-9 rounded-full btn-gold text-black flex items-center justify-center shadow-md transition-transform hover:scale-110 active:scale-95"
             >
               <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
