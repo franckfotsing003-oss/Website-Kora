@@ -35,46 +35,50 @@ export const KoraServicesSection: React.FC = () => {
     {
       id: 'standard',
       name: 'Formule Standard',
-      price: '20 000 FCFA',
-      approxUsd: '≈ 35 $',
-      badge: 'Essentiel',
+      tagline: 'Auteur débutant qui refuse de paraître amateur',
+      price: '25 000 FCFA',
+      approxUsd: '≈ 40 $',
+      badge: 'Débutant Ambitieux',
       features: [
-        '1 proposition de design',
-        '2 retouches incluses',
-        '1 mockup',
-        'Fichier PDF prêt pour impression (HD)'
+        '01 proposition de design',
+        '03 retouches incluses',
+        '01 mockup',
+        'Fichiers : impression (PDF HD) et numérique'
       ],
-      whatsappMsg: "Bonjour Kôra Studio, je souhaite demander une proforma pour la Conception de Couverture (Formule Standard à 20 000 FCFA) pour mon livre :"
+      whatsappMsg: "Bonjour Kôra Studio, je souhaite demander une proforma pour la Conception de Couverture (Formule Standard à 25 000 FCFA - Auteur débutant qui refuse de paraître amateur) pour mon livre :"
     },
     {
       id: 'premium',
       name: 'Formule Premium',
+      tagline: "Auteur sérieux qui veut qu'on le prenne au sérieux",
       price: '35 000 FCFA',
       approxUsd: '≈ 60 $',
-      badge: 'Populaire',
+      badge: 'La plus populaire',
       highlighted: true,
       features: [
-        '2 propositions de design',
-        '4 retouches incluses',
-        '4 mockups',
-        'Fichier PDF prêt pour impression (HD)'
+        '02 propositions de design',
+        '05 retouches incluses',
+        '03 mockups',
+        'Fichiers : impression (PDF HD) et numérique'
       ],
-      whatsappMsg: "Bonjour Kôra Studio, je souhaite demander une proforma pour la Conception de Couverture (Formule Premium à 35 000 FCFA) pour mon livre :"
+      whatsappMsg: "Bonjour Kôra Studio, je souhaite demander une proforma pour la Conception de Couverture (Formule Premium à 35 000 FCFA - Auteur sérieux qui veut qu'on le prenne au sérieux) pour mon livre :"
     },
     {
       id: 'prestige',
       name: 'Formule Prestige',
+      tagline: 'Auteur qui ne veut pas juste un livre mais une marque',
       price: '50 000 FCFA',
       approxUsd: '≈ 85 $',
-      badge: 'Excellence',
+      badge: 'Prestige & Marque',
       features: [
         'Concept créatif sur mesure',
         'Design premium',
         'Mockup 3D réaliste',
         'Fichier PDF prêt pour impression (HD)',
-        'Retouches illimitées'
+        'Retouches illimitées',
+        'Quelques supports publicitaires'
       ],
-      whatsappMsg: "Bonjour Kôra Studio, je souhaite demander une proforma pour la Conception de Couverture (Formule Prestige à 50 000 FCFA) pour mon livre :"
+      whatsappMsg: "Bonjour Kôra Studio, je souhaite demander une proforma pour la Conception de Couverture (Formule Prestige à 50 000 FCFA - Auteur qui ne veut pas juste un livre mais une marque) pour mon livre :"
     }
   ];
 
@@ -235,7 +239,7 @@ export const KoraServicesSection: React.FC = () => {
                   <div className="p-3.5 rounded-2xl bg-black/50 border border-white/5 hover:border-amber-400/30 transition-all">
                     <div className="flex items-baseline justify-between mb-1">
                       <span className="text-xs font-bold text-zinc-200">Jusqu’à 15 000 mots</span>
-                      <span className="text-sm font-black text-amber-300">20 000 FCFA</span>
+                      <span className="text-sm font-black text-amber-300">25 000 FCFA</span>
                     </div>
                     <span className="text-[11px] text-zinc-400">Environ 50 à 70 pages</span>
                   </div>
@@ -243,7 +247,7 @@ export const KoraServicesSection: React.FC = () => {
                   <div className="p-3.5 rounded-2xl bg-black/50 border border-white/5 hover:border-amber-400/30 transition-all">
                     <div className="flex items-baseline justify-between mb-1">
                       <span className="text-xs font-bold text-zinc-200">De 15 001 à 40 000 mots</span>
-                      <span className="text-sm font-black text-amber-300">40 000 FCFA</span>
+                      <span className="text-sm font-black text-amber-300">50 000 FCFA</span>
                     </div>
                     <span className="text-[11px] text-zinc-400">Environ 70 à 160 pages</span>
                   </div>
@@ -251,7 +255,7 @@ export const KoraServicesSection: React.FC = () => {
                   <div className="p-3.5 rounded-2xl bg-black/50 border border-white/5 hover:border-amber-400/30 transition-all">
                     <div className="flex items-baseline justify-between mb-1">
                       <span className="text-xs font-bold text-zinc-200">De 40 001 à 80 000 mots</span>
-                      <span className="text-sm font-black text-amber-300">65 000 FCFA</span>
+                      <span className="text-sm font-black text-amber-300">75 000 FCFA</span>
                     </div>
                     <span className="text-[11px] text-zinc-400">Environ 160 à 320 pages</span>
                   </div>
@@ -347,18 +351,26 @@ export const KoraServicesSection: React.FC = () => {
                   const active = coverFormulas.find(f => f.id === selectedCoverFormula)!;
                   return (
                     <div className="rounded-2xl p-4 bg-gradient-to-b from-[#18140e] to-black border border-amber-400/40 mb-6 shadow-inner">
-                      <div className="flex items-baseline justify-between mb-3 pb-2 border-b border-white/10">
+                      <div className="flex items-start justify-between gap-3 mb-3 pb-2 border-b border-white/10">
                         <div>
-                          <span className="text-[10px] font-black uppercase tracking-wider text-amber-400 block">
+                          <span className="text-[10px] font-black uppercase tracking-wider text-amber-400 block mb-0.5">
                             {active.badge}
                           </span>
                           <h4 className="text-base font-extrabold text-white">
                             {active.name}
                           </h4>
+                          {active.tagline && (
+                            <p className="text-[11px] text-amber-200/90 font-medium italic mt-1 leading-snug">
+                              « {active.tagline} »
+                            </p>
+                          )}
                         </div>
-                        <div className="text-right">
+                        <div className="text-right shrink-0">
                           <span className="text-base sm:text-lg font-black text-amber-300">
                             {active.price}
+                          </span>
+                          <span className="text-[11px] text-zinc-400 block font-medium">
+                            {active.approxUsd}
                           </span>
                         </div>
                       </div>
@@ -734,8 +746,16 @@ export const KoraServicesSection: React.FC = () => {
                         {formula.badge}
                       </span>
                     </div>
-                    <h4 className="text-base font-bold text-white mb-1">{formula.name}</h4>
-                    <p className="text-lg font-black text-amber-300 mb-4">{formula.price}</p>
+                    <h4 className="text-base font-bold text-white mb-0.5">{formula.name}</h4>
+                    {formula.tagline && (
+                      <p className="text-[11px] text-amber-200/90 font-medium italic mb-2 leading-snug">
+                        « {formula.tagline} »
+                      </p>
+                    )}
+                    <div className="flex items-baseline gap-2 mb-4">
+                      <p className="text-lg font-black text-amber-300">{formula.price}</p>
+                      <span className="text-[11px] text-zinc-400 font-medium">({formula.approxUsd})</span>
+                    </div>
 
                     <ul className="space-y-2 text-xs text-zinc-300 mb-4">
                       {formula.features.map((feat, i) => (

@@ -204,8 +204,10 @@ export const ContactFormSection: React.FC = () => {
                     </optgroup>
                     <optgroup label="Les 3 Services Phares">
                       <option value="Service 01 : Relecture, correction & reformulation">Service 01 : Relecture, correction & reformulation</option>
-                      <option value="Service 02 : Mise en page professionnelle">Service 02 : Mise en page professionnelle</option>
-                      <option value="Service 03 : Conception de couverture (Standard, Premium ou Prestige)">Service 03 : Conception de couverture</option>
+                      <option value="Service 02 : Mise en page professionnelle (Dès 25 000 FCFA)">Service 02 : Mise en page professionnelle (Dès 25 000 FCFA)</option>
+                      <option value="Service 03 : Conception de couverture — Standard (25 000 FCFA)">Service 03 : Couverture Standard (25 000 FCFA)</option>
+                      <option value="Service 03 : Conception de couverture — Premium (35 000 FCFA ⭐ Populaire)">Service 03 : Couverture Premium (35 000 FCFA ⭐ Populaire)</option>
+                      <option value="Service 03 : Conception de couverture — Prestige (50 000 FCFA)">Service 03 : Couverture Prestige (50 000 FCFA)</option>
                     </optgroup>
                     <optgroup label="Services Éditoriaux Connexes">
                       <option value="Service connexe : Traduction">Service connexe : Traduction</option>
